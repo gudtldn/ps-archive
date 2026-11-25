@@ -111,6 +111,10 @@ class SolvedAcClient:
             return response.json()
         raise ApiError(429, "RATE_LIMITED", f"{MAX_RETRIES}회 재시도 후에도 요청 한도 초과")
 
+    def judge_url_patterns(self) -> dict[str, str]:
+        """저지 id -> 문제 URL 패턴 (`{problemId}` 자리표시자 포함)."""
+        return {judge["id"]: judge["problemUrlPattern"] for judge in self._get("/judges")["judges"]}
+
     def search_problems(self, query: str) -> list[Problem]:
         """검색 결과를 마지막 페이지까지 모두 가져옵니다. 페이지 크기는 API가 50으로 고정합니다."""
         problems: list[Problem] = []

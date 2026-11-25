@@ -8,6 +8,13 @@ target/
 !*.asm
 !Cargo.toml
 
+# problems/ 레이아웃
+!meta.json
+!*.in
+!*.out
+!*.md
+.build/
+
 # solve CLI (tools/solve)
 !pyproject.toml
 !uv.lock
