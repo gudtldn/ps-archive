@@ -26,6 +26,7 @@ _RUST = """\
 
 fn solution(stdin: &str) {
     let mut lines = stdin.lines();
+    #[allow(unused)]
     let mut next = || lines.next().unwrap();
 
     #[allow(unused_macros)]
