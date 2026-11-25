@@ -5,6 +5,26 @@
 [![Solved.ac profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=gudtldn)](https://solved.ac/gudtldn)
 ![mazandi profile](http://mazandi.herokuapp.com/api?handle=gudtldn&theme=cold)
 
+## 사용법
+
+`.env`에 `SOLVEDAC_CLIENT_ID`, `SOLVEDAC_CLIENT_SECRET`을 넣고 `uv run --project tools/solve solve <명령>`으로 실행합니다.
+(`uv tool install -e tools/solve`로 설치하면 `solve`만으로 실행)
+
+```sh
+solve new 1000 -l py,rs   # 문제 폴더·예제·시작 코드 만들기 (언어: py, rs, cpp, kt, asm)
+solve test 1000           # 폴더에 있는 모든 언어로 tests/ 실행
+solve test 1000 -l rs -v  # 한 언어만, 틀리면 기대·실제 출력 표시
+solve test --all          # 전체 문제 테스트, 실패만 표시
+solve done 1000           # 상태를 solved로
+solve sync                # solved.ac에서 티어·태그 갱신 + README 다시 만들기
+solve sync --offline      # API 없이 README만 다시 만들기
+solve resolve 28955       # BOJ 번호가 solved.ac에서 몇 번인지 확인
+```
+
+- 번호는 solved.ac 번호(`19917b`)와 BOJ 번호 모두 됩니다.
+- 반례는 `tests/`에 `N.in`, `N.out`을 추가하면 같이 실행됩니다.
+- 문제 폴더: `problems/01000-01999/1000/` (`meta.json`, `tests/`, `main.*`)
+
 <!-- solve:start -->
 <!-- 이 구역은 `solve sync`가 생성합니다. 직접 고치면 덮어써집니다. -->
 
