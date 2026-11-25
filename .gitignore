@@ -7,3 +7,11 @@ target/
 !*.kt
 !*.asm
 !Cargo.toml
+
+# solve CLI (tools/solve)
+!pyproject.toml
+!uv.lock
+.env
+.venv/
+.pytest_cache/
+__pycache__/
