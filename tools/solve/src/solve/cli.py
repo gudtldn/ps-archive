@@ -29,6 +29,7 @@ from solve.resolve import MappingStatus, resolve_boj_ids
 from solve.runner import BuildError, CaseResult, UnsupportedLanguageError, Verdict, run_tests
 from solve.scaffold import ResolveError, add_new_tests, fetch_meta, save_meta, write_templates
 from solve.scrape import ScrapeError, fetch_problem_page
+from solve.sync import collect_entries, load_tag_names, refresh_metas, save_tag_names, write_readmes
 
 app = typer.Typer(help="ps-archive: 문제 생성·테스트·solved.ac 동기화", no_args_is_help=True)
 console = Console()
@@ -249,3 +250,26 @@ def migrate(
     plans = run_migration(repo_root, metas, fetch_problem_page, report, dry_run=dry_run)
     verb = "옮길 예정" if dry_run else "옮김"
     console.print(f"[bold]{len(plans)}개 문제 {verb}[/bold]")
+
+
+@app.command()
+def sync(
+    offline: Annotated[bool, typer.Option("--offline", help="solved.ac를 부르지 않고 README만 다시 만듦")] = False,
+) -> None:
+    """solved.ac에서 티어·태그를 다시 받아 meta.json을 갱신하고 README를 다시 만듭니다."""
+    try:
+        repo_root = find_repo_root()
+        tag_names = load_tag_names(repo_root)
+        if not offline:
+            with SolvedAcClient(load_credentials(repo_root)) as client:
+                changed = refresh_metas(client, repo_root, client.judge_url_patterns(), console.print)
+                all_tag_names = client.tag_names()
+            console.print(f"meta.json {changed}개 갱신")
+    except EXPECTED_ERRORS as error:
+        raise fail(error) from error
+
+    entries = collect_entries(repo_root)
+    if not offline:
+        tag_names = save_tag_names(repo_root, all_tag_names, entries)
+    paths = write_readmes(repo_root, entries, tag_names)
+    console.print(f"README {len(paths)}개 갱신: 문제 {len(entries)}개")

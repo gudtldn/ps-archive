@@ -115,6 +115,14 @@ class SolvedAcClient:
         """저지 id -> 문제 URL 패턴 (`{problemId}` 자리표시자 포함)."""
         return {judge["id"]: judge["problemUrlPattern"] for judge in self._get("/judges")["judges"]}
 
+    def tag_names(self, language: str = "ko") -> dict[str, str]:
+        """태그 키 -> 표시 이름. 해당 언어 이름이 없으면 영어, 그것도 없으면 키를 씁니다."""
+        names = {}
+        for tag in self._get("/tags")["tags"]:
+            localized = tag.get("names", {})
+            names[tag["key"]] = localized.get(language) or localized.get("en") or tag["key"]
+        return names
+
     def search_problems(self, query: str) -> list[Problem]:
         """검색 결과를 마지막 페이지까지 모두 가져옵니다. 페이지 크기는 API가 50으로 고정합니다."""
         problems: list[Problem] = []

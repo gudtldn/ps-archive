@@ -10,6 +10,7 @@ target/
 
 # problems/ 레이아웃
 !meta.json
+!tags.json
 !*.in
 !*.out
 !*.md
