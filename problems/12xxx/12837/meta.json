@@ -1,0 +1,21 @@
+{
+  "key": "12837",
+  "problemId": 12837,
+  "subId": "",
+  "title": "가계부 (Hard)",
+  "level": 15,
+  "tags": [
+    "ds",
+    "segtree"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "12837",
+      "url": "https://www.acmicpc.net/problem/12837"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 512,
+  "status": "solved"
+}

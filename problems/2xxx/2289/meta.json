@@ -1,0 +1,20 @@
+{
+  "key": "2289",
+  "problemId": 2289,
+  "subId": "",
+  "title": "Quack",
+  "level": 10,
+  "tags": [
+    "impl"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2289",
+      "url": "https://www.acmicpc.net/problem/2289"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

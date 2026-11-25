@@ -1,0 +1,25 @@
+{
+  "key": "31001",
+  "problemId": 31001,
+  "subId": "",
+  "title": "주식 시뮬레이션",
+  "level": 10,
+  "tags": [
+    "ds",
+    "hashset",
+    "impl",
+    "set",
+    "sim"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "31001",
+      "url": "https://www.acmicpc.net/problem/31001"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 1024,
+  "status": "solved",
+  "rustEdition": "2021"
+}

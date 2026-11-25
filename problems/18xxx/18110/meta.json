@@ -1,0 +1,23 @@
+{
+  "key": "18110",
+  "problemId": 18110,
+  "subId": "",
+  "title": "solved.ac",
+  "level": 7,
+  "tags": [
+    "impl",
+    "math",
+    "sort"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "18110",
+      "url": "https://www.acmicpc.net/problem/18110"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 1024,
+  "status": "solved",
+  "rustEdition": "2021"
+}

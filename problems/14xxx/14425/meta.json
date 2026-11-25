@@ -1,0 +1,25 @@
+{
+  "key": "14425",
+  "problemId": 14425,
+  "subId": "",
+  "title": "문자열 집합",
+  "level": 7,
+  "tags": [
+    "ds",
+    "hashset",
+    "set",
+    "string",
+    "treeset"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "14425",
+      "url": "https://www.acmicpc.net/problem/14425"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 1536,
+  "status": "solved",
+  "rustEdition": "2021"
+}

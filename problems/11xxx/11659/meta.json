@@ -1,0 +1,21 @@
+{
+  "key": "11659",
+  "problemId": 11659,
+  "subId": "",
+  "title": "구간 합 구하기 4",
+  "level": 8,
+  "tags": [
+    "prefix_sum"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "11659",
+      "url": "https://www.acmicpc.net/problem/11659"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2024"
+}

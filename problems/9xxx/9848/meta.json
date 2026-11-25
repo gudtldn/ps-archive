@@ -1,0 +1,21 @@
+{
+  "key": "9848",
+  "problemId": 9848,
+  "subId": "",
+  "title": "Gift",
+  "level": 3,
+  "tags": [
+    "impl"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "9848",
+      "url": "https://www.acmicpc.net/problem/9848"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 512,
+  "status": "solved",
+  "rustEdition": "2021"
+}

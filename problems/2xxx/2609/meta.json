@@ -1,0 +1,23 @@
+{
+  "key": "2609",
+  "problemId": 2609,
+  "subId": "",
+  "title": "최대공약수와 최소공배수",
+  "level": 5,
+  "tags": [
+    "euclidean",
+    "math",
+    "number_theory"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2609",
+      "url": "https://www.acmicpc.net/problem/2609"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

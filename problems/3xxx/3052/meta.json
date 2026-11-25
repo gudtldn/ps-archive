@@ -1,0 +1,22 @@
+{
+  "key": "3052",
+  "problemId": 3052,
+  "subId": "",
+  "title": "나머지",
+  "level": 4,
+  "tags": [
+    "arithmetic",
+    "math",
+    "set"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "3052",
+      "url": "https://www.acmicpc.net/problem/3052"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

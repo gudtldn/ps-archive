@@ -1,0 +1,22 @@
+{
+  "key": "2460",
+  "problemId": 2460,
+  "subId": "",
+  "title": "지능형 기차 2",
+  "level": 3,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2460",
+      "url": "https://www.acmicpc.net/problem/2460"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

@@ -1,0 +1,23 @@
+{
+  "key": "2720",
+  "problemId": 2720,
+  "subId": "",
+  "title": "세탁소 사장 동혁",
+  "level": 3,
+  "tags": [
+    "arithmetic",
+    "greedy",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2720",
+      "url": "https://www.acmicpc.net/problem/2720"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

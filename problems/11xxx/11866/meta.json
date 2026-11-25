@@ -1,0 +1,22 @@
+{
+  "key": "11866",
+  "problemId": 11866,
+  "subId": "",
+  "title": "요세푸스 문제 0",
+  "level": 7,
+  "tags": [
+    "ds",
+    "impl",
+    "queue"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "11866",
+      "url": "https://www.acmicpc.net/problem/11866"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 512,
+  "status": "solved"
+}

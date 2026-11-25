@@ -1,0 +1,22 @@
+{
+  "key": "10866",
+  "problemId": 10866,
+  "subId": "",
+  "title": "덱",
+  "level": 7,
+  "tags": [
+    "deque",
+    "ds",
+    "impl"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "10866",
+      "url": "https://www.acmicpc.net/problem/10866"
+    }
+  ],
+  "timeLimitSec": 0.5,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

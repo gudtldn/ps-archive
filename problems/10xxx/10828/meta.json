@@ -1,0 +1,22 @@
+{
+  "key": "10828",
+  "problemId": 10828,
+  "subId": "",
+  "title": "스택",
+  "level": 7,
+  "tags": [
+    "ds",
+    "impl",
+    "stack"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "10828",
+      "url": "https://www.acmicpc.net/problem/10828"
+    }
+  ],
+  "timeLimitSec": 0.5,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

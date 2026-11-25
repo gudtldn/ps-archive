@@ -1,0 +1,21 @@
+{
+  "key": "11728",
+  "problemId": 11728,
+  "subId": "",
+  "title": "배열 합치기",
+  "level": 6,
+  "tags": [
+    "sort",
+    "two_pointer"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "11728",
+      "url": "https://www.acmicpc.net/problem/11728"
+    }
+  ],
+  "timeLimitSec": 1.5,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

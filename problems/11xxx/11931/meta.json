@@ -1,0 +1,20 @@
+{
+  "key": "11931",
+  "problemId": 11931,
+  "subId": "",
+  "title": "수 정렬하기 4",
+  "level": 6,
+  "tags": [
+    "sort"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "11931",
+      "url": "https://www.acmicpc.net/problem/11931"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

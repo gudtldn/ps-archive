@@ -1,0 +1,21 @@
+{
+  "key": "25881",
+  "problemId": 25881,
+  "subId": "",
+  "title": "Electric Bill",
+  "level": 2,
+  "tags": [
+    "arithmetic",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "25881",
+      "url": "https://www.acmicpc.net/problem/25881"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 1024,
+  "status": "solved"
+}

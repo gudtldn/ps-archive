@@ -1,0 +1,23 @@
+{
+  "key": "25304",
+  "problemId": 25304,
+  "subId": "",
+  "title": "영수증",
+  "level": 2,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "25304",
+      "url": "https://www.acmicpc.net/problem/25304"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 1024,
+  "status": "solved",
+  "rustEdition": "2021"
+}

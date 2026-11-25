@@ -1,0 +1,22 @@
+{
+  "key": "11648",
+  "problemId": 11648,
+  "subId": "",
+  "title": "지속",
+  "level": 3,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "11648",
+      "url": "https://www.acmicpc.net/problem/11648"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

@@ -1,0 +1,24 @@
+{
+  "key": "6588",
+  "problemId": 6588,
+  "subId": "",
+  "title": "골드바흐의 추측",
+  "level": 10,
+  "tags": [
+    "math",
+    "number_theory",
+    "prime_sieve",
+    "prime_test"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "6588",
+      "url": "https://www.acmicpc.net/problem/6588"
+    }
+  ],
+  "timeLimitSec": 0.5,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}

@@ -1,0 +1,23 @@
+{
+  "key": "10950",
+  "problemId": 10950,
+  "subId": "",
+  "title": "A+B - 3",
+  "level": 1,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "10950",
+      "url": "https://www.acmicpc.net/problem/10950"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}

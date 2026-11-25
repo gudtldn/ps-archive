@@ -1,0 +1,22 @@
+{
+  "key": "1874",
+  "problemId": 1874,
+  "subId": "",
+  "title": "스택 수열",
+  "level": 9,
+  "tags": [
+    "ds",
+    "stack"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1874",
+      "url": "https://www.acmicpc.net/problem/1874"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2024"
+}

@@ -1,0 +1,21 @@
+{
+  "key": "2693",
+  "problemId": 2693,
+  "subId": "",
+  "title": "N번째 큰 수",
+  "level": 5,
+  "tags": [
+    "sort"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2693",
+      "url": "https://www.acmicpc.net/problem/2693"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 32,
+  "status": "solved",
+  "rustEdition": "2021"
+}

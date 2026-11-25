@@ -1,0 +1,22 @@
+{
+  "key": "12738",
+  "problemId": 12738,
+  "subId": "",
+  "title": "가장 긴 증가하는 부분 수열 3",
+  "level": 14,
+  "tags": [
+    "binary_search",
+    "lis"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "12738",
+      "url": "https://www.acmicpc.net/problem/12738"
+    }
+  ],
+  "timeLimitSec": 3.0,
+  "memoryLimitMb": 512,
+  "status": "solved",
+  "rustEdition": "2024"
+}

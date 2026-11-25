@@ -1,0 +1,22 @@
+{
+  "key": "17202",
+  "problemId": 17202,
+  "subId": "",
+  "title": "핸드폰 번호 궁합",
+  "level": 5,
+  "tags": [
+    "impl",
+    "sim",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "17202",
+      "url": "https://www.acmicpc.net/problem/17202"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

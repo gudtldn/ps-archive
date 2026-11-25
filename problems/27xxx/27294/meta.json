@@ -1,0 +1,21 @@
+{
+  "key": "27294",
+  "problemId": 27294,
+  "subId": "",
+  "title": "몇개고?",
+  "level": 1,
+  "tags": [
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "27294",
+      "url": "https://www.acmicpc.net/problem/27294"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 1024,
+  "status": "solved"
+}

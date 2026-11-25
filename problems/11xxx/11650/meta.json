@@ -1,0 +1,21 @@
+{
+  "key": "11650",
+  "problemId": 11650,
+  "subId": "",
+  "title": "좌표 정렬하기",
+  "level": 6,
+  "tags": [
+    "sort"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "11650",
+      "url": "https://www.acmicpc.net/problem/11650"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}

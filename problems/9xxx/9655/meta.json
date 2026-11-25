@@ -1,0 +1,23 @@
+{
+  "key": "9655",
+  "problemId": 9655,
+  "subId": "",
+  "title": "돌 게임",
+  "level": 6,
+  "tags": [
+    "dp",
+    "game",
+    "math",
+    "parity"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "9655",
+      "url": "https://www.acmicpc.net/problem/9655"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

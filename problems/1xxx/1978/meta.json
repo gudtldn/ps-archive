@@ -1,0 +1,22 @@
+{
+  "key": "1978",
+  "problemId": 1978,
+  "subId": "",
+  "title": "소수 찾기",
+  "level": 4,
+  "tags": [
+    "math",
+    "number_theory",
+    "prime_test"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1978",
+      "url": "https://www.acmicpc.net/problem/1978"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

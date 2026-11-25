@@ -1,0 +1,21 @@
+{
+  "key": "30923",
+  "problemId": 30923,
+  "subId": "",
+  "title": "크냑과 3D 프린터",
+  "level": 6,
+  "tags": [
+    "geom",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "30923",
+      "url": "https://www.acmicpc.net/problem/30923"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 1024,
+  "status": "solved"
+}

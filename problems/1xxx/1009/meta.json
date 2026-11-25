@@ -1,0 +1,22 @@
+{
+  "key": "1009",
+  "problemId": 1009,
+  "subId": "",
+  "title": "분산처리",
+  "level": 4,
+  "tags": [
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1009",
+      "url": "https://www.acmicpc.net/problem/1009"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

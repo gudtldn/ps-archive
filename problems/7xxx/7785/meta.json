@@ -1,0 +1,22 @@
+{
+  "key": "7785",
+  "problemId": 7785,
+  "subId": "",
+  "title": "회사에 있는 사람",
+  "level": 6,
+  "tags": [
+    "ds",
+    "hashset",
+    "set"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "7785",
+      "url": "https://www.acmicpc.net/problem/7785"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

@@ -1,0 +1,21 @@
+{
+  "key": "2042",
+  "problemId": 2042,
+  "subId": "",
+  "title": "구간 합 구하기",
+  "level": 15,
+  "tags": [
+    "ds",
+    "segtree"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2042",
+      "url": "https://www.acmicpc.net/problem/2042"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

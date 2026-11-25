@@ -1,0 +1,296 @@
+# `solve`가 생성하는 파일입니다. 직접 고치면 덮어써집니다.
+[package]
+name = "ps-archive"
+version = "0.1.0"
+edition = "2024"
+publish = false
+autobins = false
+
+[[bin]]
+name = "p1009"
+path = "problems/1xxx/1009/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p1026"
+path = "problems/1xxx/1026/main.rs"
+
+[[bin]]
+name = "p1037"
+path = "problems/1xxx/1037/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p1049"
+path = "problems/1xxx/1049/main.rs"
+
+[[bin]]
+name = "p1072"
+path = "problems/1xxx/1072/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p1152"
+path = "problems/1xxx/1152/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p1252"
+path = "problems/1xxx/1252/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p1620"
+path = "problems/1xxx/1620/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p1673"
+path = "problems/1xxx/1673/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p1764"
+path = "problems/1xxx/1764/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p1874"
+path = "problems/1xxx/1874/main.rs"
+
+[[bin]]
+name = "p2028"
+path = "problems/2xxx/2028/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p2309"
+path = "problems/2xxx/2309/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p2579"
+path = "problems/2xxx/2579/main.rs"
+
+[[bin]]
+name = "p2605"
+path = "problems/2xxx/2605/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p2609"
+path = "problems/2xxx/2609/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p2693"
+path = "problems/2xxx/2693/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p2720"
+path = "problems/2xxx/2720/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p2749"
+path = "problems/2xxx/2749/main.rs"
+
+[[bin]]
+name = "p2839"
+path = "problems/2xxx/2839/main.rs"
+
+[[bin]]
+name = "p2908"
+path = "problems/2xxx/2908/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p2920"
+path = "problems/2xxx/2920/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p3003"
+path = "problems/3xxx/3003/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p4158"
+path = "problems/4xxx/4158/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p4949"
+path = "problems/4xxx/4949/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p5092"
+path = "problems/5xxx/5092/main.rs"
+
+[[bin]]
+name = "p5341"
+path = "problems/5xxx/5341/main.rs"
+
+[[bin]]
+name = "p5373"
+path = "problems/5xxx/5373/main.rs"
+
+[[bin]]
+name = "p5622"
+path = "problems/5xxx/5622/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p6325"
+path = "problems/6xxx/6325/main.rs"
+
+[[bin]]
+name = "p6588"
+path = "problems/6xxx/6588/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p8958"
+path = "problems/8xxx/8958/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p8983"
+path = "problems/8xxx/8983/main.rs"
+
+[[bin]]
+name = "p9470"
+path = "problems/9xxx/9470/main.rs"
+
+[[bin]]
+name = "p9848"
+path = "problems/9xxx/9848/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p10808"
+path = "problems/10xxx/10808/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p10814"
+path = "problems/10xxx/10814/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p10816"
+path = "problems/10xxx/10816/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p10845"
+path = "problems/10xxx/10845/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p10868"
+path = "problems/10xxx/10868/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p10950"
+path = "problems/10xxx/10950/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p11053"
+path = "problems/11xxx/11053/main.rs"
+
+[[bin]]
+name = "p11091"
+path = "problems/11xxx/11091/main.rs"
+
+[[bin]]
+name = "p11650"
+path = "problems/11xxx/11650/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p11659"
+path = "problems/11xxx/11659/main.rs"
+
+[[bin]]
+name = "p11718"
+path = "problems/11xxx/11718/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p11723"
+path = "problems/11xxx/11723/main.rs"
+
+[[bin]]
+name = "p12015"
+path = "problems/12xxx/12015/main.rs"
+
+[[bin]]
+name = "p12738"
+path = "problems/12xxx/12738/main.rs"
+
+[[bin]]
+name = "p13301"
+path = "problems/13xxx/13301/main.rs"
+
+[[bin]]
+name = "p14425"
+path = "problems/14xxx/14425/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p15552"
+path = "problems/15xxx/15552/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p16120"
+path = "problems/16xxx/16120/main.rs"
+
+[[bin]]
+name = "p16563"
+path = "problems/16xxx/16563/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p16947"
+path = "problems/16xxx/16947/main.rs"
+
+[[bin]]
+name = "p17285"
+path = "problems/17xxx/17285/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p18110"
+path = "problems/18xxx/18110/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p20006"
+path = "problems/20xxx/20006/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p24416"
+path = "problems/24xxx/24416/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p25304"
+path = "problems/25xxx/25304/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p28278"
+path = "problems/28xxx/28278/main.rs"
+edition = "2021"
+
+[[bin]]
+name = "p31001"
+path = "problems/31xxx/31001/main.rs"
+edition = "2021"

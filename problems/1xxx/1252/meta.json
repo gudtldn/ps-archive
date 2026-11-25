@@ -1,0 +1,23 @@
+{
+  "key": "1252",
+  "problemId": 1252,
+  "subId": "",
+  "title": "이진수 덧셈",
+  "level": 4,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1252",
+      "url": "https://www.acmicpc.net/problem/1252"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

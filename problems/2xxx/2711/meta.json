@@ -1,0 +1,21 @@
+{
+  "key": "2711",
+  "problemId": 2711,
+  "subId": "",
+  "title": "오타맨 고창영",
+  "level": 4,
+  "tags": [
+    "impl",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2711",
+      "url": "https://www.acmicpc.net/problem/2711"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

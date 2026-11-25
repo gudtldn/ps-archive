@@ -1,0 +1,21 @@
+{
+  "key": "17362",
+  "problemId": 17362,
+  "subId": "",
+  "title": "수학은 체육과목 입니다 2",
+  "level": 2,
+  "tags": [
+    "arithmetic",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "17362",
+      "url": "https://www.acmicpc.net/problem/17362"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 1024,
+  "status": "solved"
+}

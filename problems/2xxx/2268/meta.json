@@ -1,0 +1,21 @@
+{
+  "key": "2268",
+  "problemId": 2268,
+  "subId": "",
+  "title": "수들의 합 7",
+  "level": 15,
+  "tags": [
+    "ds",
+    "segtree"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2268",
+      "url": "https://www.acmicpc.net/problem/2268"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

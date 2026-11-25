@@ -1,0 +1,24 @@
+{
+  "key": "1036",
+  "problemId": 1036,
+  "subId": "",
+  "title": "36진수",
+  "level": 14,
+  "tags": [
+    "big",
+    "greedy",
+    "impl",
+    "math",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1036",
+      "url": "https://www.acmicpc.net/problem/1036"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

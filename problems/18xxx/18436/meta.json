@@ -1,0 +1,21 @@
+{
+  "key": "18436",
+  "problemId": 18436,
+  "subId": "",
+  "title": "수열과 쿼리 37",
+  "level": 15,
+  "tags": [
+    "ds",
+    "segtree"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "18436",
+      "url": "https://www.acmicpc.net/problem/18436"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 512,
+  "status": "solved"
+}

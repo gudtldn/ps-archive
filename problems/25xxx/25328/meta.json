@@ -1,0 +1,25 @@
+{
+  "key": "25328",
+  "problemId": 25328,
+  "subId": "",
+  "title": "문자열 집합 조합하기",
+  "level": 9,
+  "tags": [
+    "backtrack",
+    "brute",
+    "ds",
+    "hashset",
+    "set",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "25328",
+      "url": "https://www.acmicpc.net/problem/25328"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 512,
+  "status": "solved"
+}

@@ -1,0 +1,23 @@
+{
+  "key": "5341",
+  "problemId": 5341,
+  "subId": "",
+  "title": "Pyramids",
+  "level": 1,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "5341",
+      "url": "https://www.acmicpc.net/problem/5341"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2024"
+}

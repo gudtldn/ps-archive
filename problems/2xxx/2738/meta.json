@@ -1,0 +1,22 @@
+{
+  "key": "2738",
+  "problemId": 2738,
+  "subId": "",
+  "title": "행렬 덧셈",
+  "level": 3,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2738",
+      "url": "https://www.acmicpc.net/problem/2738"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

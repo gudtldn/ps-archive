@@ -1,0 +1,23 @@
+{
+  "key": "4949",
+  "problemId": 4949,
+  "subId": "",
+  "title": "균형잡힌 세상",
+  "level": 7,
+  "tags": [
+    "ds",
+    "stack",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "4949",
+      "url": "https://www.acmicpc.net/problem/4949"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

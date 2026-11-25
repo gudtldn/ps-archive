@@ -1,0 +1,21 @@
+{
+  "key": "5622",
+  "problemId": 5622,
+  "subId": "",
+  "title": "다이얼",
+  "level": 4,
+  "tags": [
+    "impl"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "5622",
+      "url": "https://www.acmicpc.net/problem/5622"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

@@ -1,0 +1,22 @@
+{
+  "key": "15596",
+  "problemId": 15596,
+  "subId": "",
+  "title": "정수 N개의 합",
+  "level": 4,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "15596",
+      "url": "https://www.acmicpc.net/problem/15596"
+    }
+  ],
+  "timeLimitSec": 0.1,
+  "memoryLimitMb": 512,
+  "status": "solved"
+}

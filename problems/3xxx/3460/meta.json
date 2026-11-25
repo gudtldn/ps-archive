@@ -1,0 +1,21 @@
+{
+  "key": "3460",
+  "problemId": 3460,
+  "subId": "",
+  "title": "이진수",
+  "level": 3,
+  "tags": [
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "3460",
+      "url": "https://www.acmicpc.net/problem/3460"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

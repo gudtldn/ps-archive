@@ -1,0 +1,23 @@
+{
+  "key": "2480",
+  "problemId": 2480,
+  "subId": "",
+  "title": "주사위 세개",
+  "level": 2,
+  "tags": [
+    "arithmetic",
+    "casework",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2480",
+      "url": "https://www.acmicpc.net/problem/2480"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

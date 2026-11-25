@@ -1,0 +1,23 @@
+{
+  "key": "6325",
+  "problemId": 6325,
+  "subId": "",
+  "title": "Definite Values",
+  "level": 6,
+  "tags": [
+    "ds",
+    "impl",
+    "treeset"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "6325",
+      "url": "https://www.acmicpc.net/problem/6325"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2024"
+}

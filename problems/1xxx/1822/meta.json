@@ -1,0 +1,24 @@
+{
+  "key": "1822",
+  "problemId": 1822,
+  "subId": "",
+  "title": "차집합",
+  "level": 7,
+  "tags": [
+    "ds",
+    "hashset",
+    "set",
+    "sort",
+    "treeset"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1822",
+      "url": "https://www.acmicpc.net/problem/1822"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

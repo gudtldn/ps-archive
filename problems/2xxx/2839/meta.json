@@ -1,0 +1,23 @@
+{
+  "key": "2839",
+  "problemId": 2839,
+  "subId": "",
+  "title": "설탕 배달",
+  "level": 7,
+  "tags": [
+    "dp",
+    "greedy",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2839",
+      "url": "https://www.acmicpc.net/problem/2839"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2024"
+}

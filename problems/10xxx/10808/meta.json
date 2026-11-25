@@ -1,0 +1,22 @@
+{
+  "key": "10808",
+  "problemId": 10808,
+  "subId": "",
+  "title": "알파벳 개수",
+  "level": 2,
+  "tags": [
+    "impl",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "10808",
+      "url": "https://www.acmicpc.net/problem/10808"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}

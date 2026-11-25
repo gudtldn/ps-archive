@@ -1,0 +1,22 @@
+{
+  "key": "1037",
+  "problemId": 1037,
+  "subId": "",
+  "title": "약수",
+  "level": 5,
+  "tags": [
+    "math",
+    "number_theory"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1037",
+      "url": "https://www.acmicpc.net/problem/1037"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 512,
+  "status": "solved",
+  "rustEdition": "2021"
+}

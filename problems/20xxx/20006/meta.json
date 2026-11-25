@@ -1,0 +1,22 @@
+{
+  "key": "20006",
+  "problemId": 20006,
+  "subId": "",
+  "title": "랭킹전 대기열",
+  "level": 9,
+  "tags": [
+    "impl",
+    "sim"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "20006",
+      "url": "https://www.acmicpc.net/problem/20006"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}

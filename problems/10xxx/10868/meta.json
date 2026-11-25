@@ -1,0 +1,23 @@
+{
+  "key": "10868",
+  "problemId": 10868,
+  "subId": "",
+  "title": "최솟값",
+  "level": 15,
+  "tags": [
+    "ds",
+    "segtree",
+    "sparse_table"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "10868",
+      "url": "https://www.acmicpc.net/problem/10868"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}

@@ -1,0 +1,22 @@
+{
+  "key": "31403",
+  "problemId": 31403,
+  "subId": "",
+  "title": "$A + B - C$",
+  "level": 2,
+  "tags": [
+    "arithmetic",
+    "math",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "31403",
+      "url": "https://www.acmicpc.net/problem/31403"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 1024,
+  "status": "solved"
+}

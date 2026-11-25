@@ -1,0 +1,22 @@
+{
+  "key": "14920",
+  "problemId": 14920,
+  "subId": "",
+  "title": "3n+1 수열",
+  "level": 3,
+  "tags": [
+    "impl",
+    "math",
+    "sim"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "14920",
+      "url": "https://www.acmicpc.net/problem/14920"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 512,
+  "status": "solved"
+}

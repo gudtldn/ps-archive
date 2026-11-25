@@ -1,0 +1,22 @@
+{
+  "key": "8983",
+  "problemId": 8983,
+  "subId": "",
+  "title": "사냥꾼",
+  "level": 12,
+  "tags": [
+    "binary_search",
+    "sort"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "8983",
+      "url": "https://www.acmicpc.net/problem/8983"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2024"
+}

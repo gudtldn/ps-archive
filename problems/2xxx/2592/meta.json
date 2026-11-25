@@ -1,0 +1,21 @@
+{
+  "key": "2592",
+  "problemId": 2592,
+  "subId": "",
+  "title": "대표값",
+  "level": 4,
+  "tags": [
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2592",
+      "url": "https://www.acmicpc.net/problem/2592"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

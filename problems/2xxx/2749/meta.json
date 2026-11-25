@@ -1,0 +1,22 @@
+{
+  "key": "2749",
+  "problemId": 2749,
+  "subId": "",
+  "title": "피보나치 수 3",
+  "level": 14,
+  "tags": [
+    "exp_squaring",
+    "math",
+    "pisano"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2749",
+      "url": "https://www.acmicpc.net/problem/2749"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solving"
+}

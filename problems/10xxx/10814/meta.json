@@ -1,0 +1,21 @@
+{
+  "key": "10814",
+  "problemId": 10814,
+  "subId": "",
+  "title": "나이순 정렬",
+  "level": 6,
+  "tags": [
+    "sort"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "10814",
+      "url": "https://www.acmicpc.net/problem/10814"
+    }
+  ],
+  "timeLimitSec": 3.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}

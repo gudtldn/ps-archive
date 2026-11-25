@@ -1,0 +1,23 @@
+{
+  "key": "9470",
+  "problemId": 9470,
+  "subId": "",
+  "title": "Strahler 순서",
+  "level": 13,
+  "tags": [
+    "dag",
+    "graph",
+    "toposort"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "9470",
+      "url": "https://www.acmicpc.net/problem/9470"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2024"
+}

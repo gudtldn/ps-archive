@@ -1,0 +1,21 @@
+{
+  "key": "10826",
+  "problemId": 10826,
+  "subId": "",
+  "title": "피보나치 수 4",
+  "level": 6,
+  "tags": [
+    "big",
+    "dp"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "10826",
+      "url": "https://www.acmicpc.net/problem/10826"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

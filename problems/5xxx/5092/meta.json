@@ -1,0 +1,25 @@
+{
+  "key": "5092",
+  "problemId": 5092,
+  "subId": "",
+  "title": "Air Old Zeeland",
+  "level": 6,
+  "tags": [
+    "ds",
+    "hashset",
+    "impl",
+    "set",
+    "treeset"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "5092",
+      "url": "https://www.acmicpc.net/problem/5092"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2024"
+}

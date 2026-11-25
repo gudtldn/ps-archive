@@ -1,0 +1,22 @@
+{
+  "key": "2908",
+  "problemId": 2908,
+  "subId": "",
+  "title": "상수",
+  "level": 4,
+  "tags": [
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2908",
+      "url": "https://www.acmicpc.net/problem/2908"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

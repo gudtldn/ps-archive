@@ -1,0 +1,22 @@
+{
+  "key": "1673",
+  "problemId": 1673,
+  "subId": "",
+  "title": "치킨 쿠폰",
+  "level": 4,
+  "tags": [
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1673",
+      "url": "https://www.acmicpc.net/problem/1673"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

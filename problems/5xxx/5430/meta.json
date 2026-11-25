@@ -1,0 +1,24 @@
+{
+  "key": "5430",
+  "problemId": 5430,
+  "subId": "",
+  "title": "AC",
+  "level": 11,
+  "tags": [
+    "deque",
+    "ds",
+    "impl",
+    "parse",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "5430",
+      "url": "https://www.acmicpc.net/problem/5430"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

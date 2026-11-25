@@ -1,0 +1,23 @@
+{
+  "key": "15552",
+  "problemId": 15552,
+  "subId": "",
+  "title": "빠른 A+B",
+  "level": 2,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "15552",
+      "url": "https://www.acmicpc.net/problem/15552"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 512,
+  "status": "solved",
+  "rustEdition": "2021"
+}

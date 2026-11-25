@@ -1,0 +1,25 @@
+{
+  "key": "25325",
+  "problemId": 25325,
+  "subId": "",
+  "title": "학생 인기도 측정",
+  "level": 6,
+  "tags": [
+    "ds",
+    "hashset",
+    "set",
+    "sort",
+    "string",
+    "treeset"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "25325",
+      "url": "https://www.acmicpc.net/problem/25325"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 512,
+  "status": "solved"
+}

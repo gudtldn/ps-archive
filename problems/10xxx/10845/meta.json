@@ -1,0 +1,22 @@
+{
+  "key": "10845",
+  "problemId": 10845,
+  "subId": "",
+  "title": "큐",
+  "level": 7,
+  "tags": [
+    "ds",
+    "queue"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "10845",
+      "url": "https://www.acmicpc.net/problem/10845"
+    }
+  ],
+  "timeLimitSec": 0.5,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}

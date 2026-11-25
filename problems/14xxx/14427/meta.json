@@ -1,0 +1,22 @@
+{
+  "key": "14427",
+  "problemId": 14427,
+  "subId": "",
+  "title": "수열과 쿼리 15",
+  "level": 13,
+  "tags": [
+    "ds",
+    "pq",
+    "segtree"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "14427",
+      "url": "https://www.acmicpc.net/problem/14427"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 512,
+  "status": "solved"
+}

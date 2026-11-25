@@ -1,0 +1,21 @@
+{
+  "key": "2920",
+  "problemId": 2920,
+  "subId": "",
+  "title": "음계",
+  "level": 4,
+  "tags": [
+    "impl"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2920",
+      "url": "https://www.acmicpc.net/problem/2920"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

@@ -1,0 +1,22 @@
+{
+  "key": "5373",
+  "problemId": 5373,
+  "subId": "",
+  "title": "큐빙",
+  "level": 16,
+  "tags": [
+    "impl",
+    "sim"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "5373",
+      "url": "https://www.acmicpc.net/problem/5373"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2024"
+}

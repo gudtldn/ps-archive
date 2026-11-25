@@ -1,0 +1,21 @@
+{
+  "key": "1292",
+  "problemId": 1292,
+  "subId": "",
+  "title": "쉽게 푸는 문제",
+  "level": 5,
+  "tags": [
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1292",
+      "url": "https://www.acmicpc.net/problem/1292"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

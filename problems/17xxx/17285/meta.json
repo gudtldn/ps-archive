@@ -1,0 +1,23 @@
+{
+  "key": "17285",
+  "problemId": 17285,
+  "subId": "",
+  "title": "XORChic",
+  "level": 4,
+  "tags": [
+    "impl",
+    "math",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "17285",
+      "url": "https://www.acmicpc.net/problem/17285"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}

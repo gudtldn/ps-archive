@@ -1,0 +1,21 @@
+{
+  "key": "1032",
+  "problemId": 1032,
+  "subId": "",
+  "title": "명령 프롬프트",
+  "level": 5,
+  "tags": [
+    "impl",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1032",
+      "url": "https://www.acmicpc.net/problem/1032"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

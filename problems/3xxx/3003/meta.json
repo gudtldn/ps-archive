@@ -1,0 +1,23 @@
+{
+  "key": "3003",
+  "problemId": 3003,
+  "subId": "",
+  "title": "킹, 퀸, 룩, 비숍, 나이트, 폰",
+  "level": 1,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "3003",
+      "url": "https://www.acmicpc.net/problem/3003"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

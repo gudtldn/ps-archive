@@ -1,0 +1,22 @@
+{
+  "key": "1072",
+  "problemId": 1072,
+  "subId": "",
+  "title": "게임",
+  "level": 8,
+  "tags": [
+    "binary_search",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1072",
+      "url": "https://www.acmicpc.net/problem/1072"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

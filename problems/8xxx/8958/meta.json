@@ -1,0 +1,22 @@
+{
+  "key": "8958",
+  "problemId": 8958,
+  "subId": "",
+  "title": "OX퀴즈",
+  "level": 4,
+  "tags": [
+    "impl",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "8958",
+      "url": "https://www.acmicpc.net/problem/8958"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

@@ -1,0 +1,22 @@
+{
+  "key": "2605",
+  "problemId": 2605,
+  "subId": "",
+  "title": "줄 세우기",
+  "level": 4,
+  "tags": [
+    "ds",
+    "impl"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2605",
+      "url": "https://www.acmicpc.net/problem/2605"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

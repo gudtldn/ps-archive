@@ -1,0 +1,22 @@
+{
+  "key": "28278",
+  "problemId": 28278,
+  "subId": "",
+  "title": "스택 2",
+  "level": 7,
+  "tags": [
+    "ds",
+    "stack"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "28278",
+      "url": "https://www.acmicpc.net/problem/28278"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 1024,
+  "status": "solved",
+  "rustEdition": "2021"
+}

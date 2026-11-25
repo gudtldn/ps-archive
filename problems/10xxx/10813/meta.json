@@ -1,0 +1,21 @@
+{
+  "key": "10813",
+  "problemId": 10813,
+  "subId": "",
+  "title": "공 바꾸기",
+  "level": 4,
+  "tags": [
+    "impl",
+    "sim"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "10813",
+      "url": "https://www.acmicpc.net/problem/10813"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

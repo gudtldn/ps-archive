@@ -1,0 +1,22 @@
+{
+  "key": "1001",
+  "problemId": 1001,
+  "subId": "",
+  "title": "A-B",
+  "level": 1,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1001",
+      "url": "https://www.acmicpc.net/problem/1001"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

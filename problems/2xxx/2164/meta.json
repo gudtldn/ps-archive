@@ -1,0 +1,21 @@
+{
+  "key": "2164",
+  "problemId": 2164,
+  "subId": "",
+  "title": "카드2",
+  "level": 7,
+  "tags": [
+    "ds",
+    "queue"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2164",
+      "url": "https://www.acmicpc.net/problem/2164"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

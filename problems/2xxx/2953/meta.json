@@ -1,0 +1,22 @@
+{
+  "key": "2953",
+  "problemId": 2953,
+  "subId": "",
+  "title": "나는 요리사다",
+  "level": 3,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2953",
+      "url": "https://www.acmicpc.net/problem/2953"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

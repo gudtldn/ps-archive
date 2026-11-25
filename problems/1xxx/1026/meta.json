@@ -1,0 +1,22 @@
+{
+  "key": "1026",
+  "problemId": 1026,
+  "subId": "",
+  "title": "보물",
+  "level": 7,
+  "tags": [
+    "greedy",
+    "math",
+    "sort"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1026",
+      "url": "https://www.acmicpc.net/problem/1026"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solving"
+}

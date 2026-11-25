@@ -1,0 +1,21 @@
+{
+  "key": "15312",
+  "problemId": 15312,
+  "subId": "",
+  "title": "이름 궁합",
+  "level": 6,
+  "tags": [
+    "impl",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "15312",
+      "url": "https://www.acmicpc.net/problem/15312"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 512,
+  "status": "solved"
+}

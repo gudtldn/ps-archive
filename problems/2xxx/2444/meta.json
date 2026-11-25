@@ -1,0 +1,20 @@
+{
+  "key": "2444",
+  "problemId": 2444,
+  "subId": "",
+  "title": "별 찍기 - 7",
+  "level": 3,
+  "tags": [
+    "impl"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2444",
+      "url": "https://www.acmicpc.net/problem/2444"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

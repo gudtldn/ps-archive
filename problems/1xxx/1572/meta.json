@@ -1,0 +1,22 @@
+{
+  "key": "1572",
+  "problemId": 1572,
+  "subId": "",
+  "title": "중앙값",
+  "level": 16,
+  "tags": [
+    "binary_search",
+    "ds",
+    "segtree"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1572",
+      "url": "https://www.acmicpc.net/problem/1572"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

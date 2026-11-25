@@ -1,0 +1,25 @@
+{
+  "key": "4158",
+  "problemId": 4158,
+  "subId": "",
+  "title": "CD",
+  "level": 6,
+  "tags": [
+    "binary_search",
+    "ds",
+    "hashset",
+    "set",
+    "two_pointer"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "4158",
+      "url": "https://www.acmicpc.net/problem/4158"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}

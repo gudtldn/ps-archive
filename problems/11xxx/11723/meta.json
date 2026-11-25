@@ -1,0 +1,23 @@
+{
+  "key": "11723",
+  "problemId": 11723,
+  "subId": "",
+  "title": "집합",
+  "level": 6,
+  "tags": [
+    "bitmask",
+    "impl",
+    "set"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "11723",
+      "url": "https://www.acmicpc.net/problem/11723"
+    }
+  ],
+  "timeLimitSec": 1.5,
+  "memoryLimitMb": 4,
+  "status": "solved",
+  "rustEdition": "2024"
+}

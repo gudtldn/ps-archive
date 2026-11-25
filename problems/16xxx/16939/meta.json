@@ -1,0 +1,20 @@
+{
+  "key": "16939",
+  "problemId": 16939,
+  "subId": "",
+  "title": "2×2×2 큐브",
+  "level": 13,
+  "tags": [
+    "impl"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "16939",
+      "url": "https://www.acmicpc.net/problem/16939"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 512,
+  "status": "solved"
+}

@@ -1,0 +1,21 @@
+{
+  "key": "14719",
+  "problemId": 14719,
+  "subId": "",
+  "title": "빗물",
+  "level": 11,
+  "tags": [
+    "impl",
+    "sim"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "14719",
+      "url": "https://www.acmicpc.net/problem/14719"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

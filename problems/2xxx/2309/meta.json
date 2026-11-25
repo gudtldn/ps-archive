@@ -1,0 +1,22 @@
+{
+  "key": "2309",
+  "problemId": 2309,
+  "subId": "",
+  "title": "일곱 난쟁이",
+  "level": 5,
+  "tags": [
+    "brute",
+    "sort"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "2309",
+      "url": "https://www.acmicpc.net/problem/2309"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2021"
+}

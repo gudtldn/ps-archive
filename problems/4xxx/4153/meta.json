@@ -1,0 +1,22 @@
+{
+  "key": "4153",
+  "problemId": 4153,
+  "subId": "",
+  "title": "직각삼각형",
+  "level": 3,
+  "tags": [
+    "geom",
+    "math",
+    "pythagorean"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "4153",
+      "url": "https://www.acmicpc.net/problem/4153"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 128,
+  "status": "solved"
+}

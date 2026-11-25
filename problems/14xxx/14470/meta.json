@@ -1,0 +1,23 @@
+{
+  "key": "14470",
+  "problemId": 14470,
+  "subId": "",
+  "title": "전자레인지",
+  "level": 2,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math",
+    "sim"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "14470",
+      "url": "https://www.acmicpc.net/problem/14470"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 512,
+  "status": "solved"
+}

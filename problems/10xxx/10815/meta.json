@@ -1,0 +1,24 @@
+{
+  "key": "10815",
+  "problemId": 10815,
+  "subId": "",
+  "title": "숫자 카드",
+  "level": 6,
+  "tags": [
+    "binary_search",
+    "ds",
+    "hashset",
+    "set",
+    "sort"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "10815",
+      "url": "https://www.acmicpc.net/problem/10815"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

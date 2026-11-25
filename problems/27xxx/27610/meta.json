@@ -1,0 +1,21 @@
+{
+  "key": "27610",
+  "problemId": 27610,
+  "subId": "",
+  "title": "A Musical Question",
+  "level": 13,
+  "tags": [
+    "dp",
+    "knapsack"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "27610",
+      "url": "https://www.acmicpc.net/problem/27610"
+    }
+  ],
+  "timeLimitSec": 11.0,
+  "memoryLimitMb": 1024,
+  "status": "solved"
+}

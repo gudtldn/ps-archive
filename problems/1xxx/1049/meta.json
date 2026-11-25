@@ -1,0 +1,22 @@
+{
+  "key": "1049",
+  "problemId": 1049,
+  "subId": "",
+  "title": "기타줄",
+  "level": 7,
+  "tags": [
+    "greedy",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1049",
+      "url": "https://www.acmicpc.net/problem/1049"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 128,
+  "status": "solved",
+  "rustEdition": "2024"
+}

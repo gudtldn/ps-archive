@@ -1,0 +1,22 @@
+{
+  "key": "11091",
+  "problemId": 11091,
+  "subId": "",
+  "title": "알파벳 전부 쓰기",
+  "level": 4,
+  "tags": [
+    "impl",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "11091",
+      "url": "https://www.acmicpc.net/problem/11091"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2024"
+}

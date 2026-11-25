@@ -1,0 +1,23 @@
+{
+  "key": "16120",
+  "problemId": 16120,
+  "subId": "",
+  "title": "PPAP",
+  "level": 12,
+  "tags": [
+    "ds",
+    "stack",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "16120",
+      "url": "https://www.acmicpc.net/problem/16120"
+    }
+  ],
+  "timeLimitSec": 1.0,
+  "memoryLimitMb": 512,
+  "status": "solved",
+  "rustEdition": "2024"
+}

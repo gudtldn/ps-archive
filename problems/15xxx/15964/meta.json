@@ -1,0 +1,22 @@
+{
+  "key": "15964",
+  "problemId": 15964,
+  "subId": "",
+  "title": "이상한 기호",
+  "level": 1,
+  "tags": [
+    "arithmetic",
+    "impl",
+    "math"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "15964",
+      "url": "https://www.acmicpc.net/problem/15964"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 256,
+  "status": "solved"
+}

@@ -1,0 +1,25 @@
+{
+  "key": "16563",
+  "problemId": 16563,
+  "subId": "",
+  "title": "어려운 소인수분해",
+  "level": 12,
+  "tags": [
+    "math",
+    "number_theory",
+    "prime_factor",
+    "prime_sieve",
+    "prime_test"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "16563",
+      "url": "https://www.acmicpc.net/problem/16563"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 512,
+  "status": "solved",
+  "rustEdition": "2021"
+}

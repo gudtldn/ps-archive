@@ -1,0 +1,23 @@
+{
+  "key": "1620",
+  "problemId": 1620,
+  "subId": "",
+  "title": "나는야 포켓몬 마스터 이다솜",
+  "level": 7,
+  "tags": [
+    "ds",
+    "hashset",
+    "set"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1620",
+      "url": "https://www.acmicpc.net/problem/1620"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}

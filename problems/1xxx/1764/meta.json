@@ -1,0 +1,25 @@
+{
+  "key": "1764",
+  "problemId": 1764,
+  "subId": "",
+  "title": "듣보잡",
+  "level": 7,
+  "tags": [
+    "ds",
+    "hashset",
+    "set",
+    "sort",
+    "string"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1764",
+      "url": "https://www.acmicpc.net/problem/1764"
+    }
+  ],
+  "timeLimitSec": 2.0,
+  "memoryLimitMb": 256,
+  "status": "solved",
+  "rustEdition": "2021"
+}
