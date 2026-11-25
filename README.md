@@ -1,4 +1,4 @@
-# Baekjoon Online Judge 문제풀이
+# PS Archive
 
 [BOJ 프로필](https://www.acmicpc.net/user/gudtldn)
 
