@@ -100,7 +100,7 @@ macro_rules! println {
         STDOUT.with(|refcell| {
             use std::io::*;
             writeln!(refcell.borrow_mut(), $($t)*).unwrap();
-        });
+        })
     };
 }
 
@@ -110,6 +110,6 @@ macro_rules! print {
         STDOUT.with(|refcell| {
             use std::io::*;
             write!(refcell.borrow_mut(), $($t)*).unwrap();
-        });
+        })
     };
 }
