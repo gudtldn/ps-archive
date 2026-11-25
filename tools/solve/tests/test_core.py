@@ -70,8 +70,8 @@ class TestLangs:
 
 class TestLayout:
     def test_bucket_and_directory(self, tmp_path: Path) -> None:
-        assert bucket_name(999) == "0xxx"
-        assert problem_dir(tmp_path, 19917, "19917b") == tmp_path / "problems" / "19xxx" / "19917b"
+        assert bucket_name(999) == "00000-00999"
+        assert problem_dir(tmp_path, 19917, "19917b") == tmp_path / "problems" / "19000-19999" / "19917b"
 
     def test_meta_round_trip_keeps_unknown_keys(self, tmp_path: Path) -> None:
         directory = tmp_path / "p"
@@ -102,7 +102,7 @@ class TestLayout:
         (directory / "main.rs").write_text("fn main() {}", encoding="utf-8")
         manifest = render_cargo_manifest(tmp_path)
         assert 'name = "p1000"' in manifest
-        assert 'path = "problems/1xxx/1000/main.rs"' in manifest
+        assert 'path = "problems/01000-01999/1000/main.rs"' in manifest
         assert "autobins = false" in manifest
 
 

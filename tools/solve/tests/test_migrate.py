@@ -106,7 +106,7 @@ class TestMigrate:
         logs: list[str] = []
         migrate(tmp_path, {1000: boj_meta(1000), 2749: boj_meta(2749)}, lambda _: page, logs.append)
 
-        solved = tmp_path / "problems/1xxx/1000"
+        solved = tmp_path / "problems/01000-01999/1000"
         assert sorted(p.name for p in solved.iterdir()) == [
             "boj_1000_test.cpp",
             "main.py",
@@ -117,17 +117,17 @@ class TestMigrate:
         assert [(i, o) for _, i, o in read_tests(solved)] == [("1 2\n", "3\n"), ("4\n5 6\n", "11\n")]
         assert read_meta(solved).status == STATUS_SOLVED
         assert read_meta(solved).time_limit_sec == 2.0
-        assert read_meta(tmp_path / "problems/2xxx/2749").status == STATUS_SOLVING
+        assert read_meta(tmp_path / "problems/02000-02999/2749").status == STATUS_SOLVING
         assert not (tmp_path / "1000").exists()
         assert not (tmp_path / "2749").exists()
         manifest = (tmp_path / "Cargo.toml").read_text(encoding="utf-8")
-        assert 'path = "problems/1xxx/1000/main.rs"\nedition = "2021"' in manifest
+        assert 'path = "problems/01000-01999/1000/main.rs"\nedition = "2021"' in manifest
         assert read_meta(solved).extra == {"rustEdition": "2021"}
 
         status = subprocess.run(
             ["git", "-C", str(tmp_path), "status", "--porcelain"], capture_output=True, text=True, check=True
         ).stdout
-        assert "R  1000/python/boj_1000.py -> problems/1xxx/1000/main.py" in status
+        assert "R  1000/python/boj_1000.py -> problems/01000-01999/1000/main.py" in status
         assert "D  1000/python/boj_1000_test.py" in status
 
     def test_skips_folder_without_sources(self, tmp_path: Path) -> None:
@@ -136,7 +136,7 @@ class TestMigrate:
         plans = migrate(tmp_path, {15595: boj_meta(15595)}, lambda _: ProblemPage(1, 1, ()), lambda _: None)
         assert plans == []
         assert (tmp_path / "15595/cpp/output/boj_15595.exe").exists()
-        assert not (tmp_path / "problems/15xxx/15595").exists()
+        assert not (tmp_path / "problems/15000-15999/15595").exists()
 
     def test_dry_run_changes_nothing(self, tmp_path: Path) -> None:
         git(tmp_path, "init", "-q")

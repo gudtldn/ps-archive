@@ -1,6 +1,6 @@
 """문제 폴더 레이아웃, meta.json, 테스트 파일, 루트 Cargo.toml을 다룹니다.
 
-problems/<번호 // 1000>xxx/<solved.ac 키>/
+problems/<1000번 단위 범위, 예: 01000-01999>/<solved.ac 키>/
     meta.json
     tests/1.in, tests/1.out, ...
     main.py, main.rs, ...
@@ -14,6 +14,8 @@ from typing import Any
 from solve.api import Problem
 
 PROBLEMS_DIR = "problems"
+BUCKET_SIZE = 1000
+BUCKET_DIGITS = 5  # solved.ac 번호가 5자리라 이만큼 0을 채웁니다
 META_FILE = "meta.json"
 TESTS_DIR = "tests"
 BUILD_DIR = ".build"
@@ -112,7 +114,12 @@ def problems_root(repo_root: Path) -> Path:
 
 
 def bucket_name(problem_id: int) -> str:
-    return f"{problem_id // 1000}xxx"
+    """1000번 단위 범위 폴더 이름. 예: 1000 -> `01000-01999`.
+
+    0을 채워야 GitHub과 탐색기의 문자열 정렬이 번호순과 같아집니다.
+    """
+    start = problem_id // BUCKET_SIZE * BUCKET_SIZE
+    return f"{start:0{BUCKET_DIGITS}d}-{start + BUCKET_SIZE - 1:0{BUCKET_DIGITS}d}"
 
 
 def problem_dir(repo_root: Path, problem_id: int, key: str) -> Path:
