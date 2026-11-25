@@ -86,6 +86,13 @@ class TestResolveBojIds:
         assert by_boj[42].status is MappingStatus.MISSING
         assert [row.boj_id for row in rows] == [1000, 28955, 19918, 42]
 
+    def test_reports_progress_after_each_query(self) -> None:
+        ids = list(range(1000, 1010))  # 10개 -> 검색어 2개 (8개 + 2개)
+        calls: list[tuple[int, int]] = []
+        with SolvedAcClient(CREDS, transport=fake_search([])) as client:
+            resolve_boj_ids(client, ids, on_progress=lambda done, total: calls.append((done, total)))
+        assert calls == [(0, 2), (1, 2), (2, 2)]
+
 
 class TestClient:
     def test_retries_after_rate_limit(self) -> None:
@@ -97,6 +104,18 @@ class TestClient:
         with SolvedAcClient(CREDS, transport=transport, sleep=slept.append) as client:
             assert client.search_problems("id:B1") == []
         assert slept == [0.0]
+
+    def test_notifies_before_waiting_on_rate_limit(self) -> None:
+        calls = iter(
+            [httpx.Response(429, headers={"Retry-After": "3"}), httpx.Response(200, json={"problems": [], "total": 0})]
+        )
+        waits: list[tuple[float, int]] = []
+        transport = httpx.MockTransport(lambda _: next(calls))
+        with SolvedAcClient(
+            CREDS, transport=transport, sleep=lambda _: None, on_wait=lambda s, n: waits.append((s, n))
+        ) as client:
+            client.search_problems("id:B1")
+        assert waits == [(3.0, 1)]
 
     def test_raises_api_error_with_code(self) -> None:
         transport = httpx.MockTransport(

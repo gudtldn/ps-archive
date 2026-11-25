@@ -5,11 +5,19 @@ solved.ac는 대부분 BOJ 번호를 그대로 쓰지만, 중복 문제를 합�
 404가 나므로, 문제의 모든 저지 번호를 대상으로 하는 `id:B<번호>` 검색을 씁니다.
 """
 
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from enum import Enum
+from typing import Protocol
 
-from solve.api import Problem, SolvedAcClient
+from solve.api import Problem
+
+type ProgressCallback = Callable[[int, int], None]
+
+
+class ProblemSearcher(Protocol):
+    def search_problems(self, query: str) -> list[Problem]: ...
+
 
 BOJ_OJ_ID = "boj"
 BOJ_SEARCH_PREFIX = "id:B"
@@ -72,11 +80,20 @@ def classify(boj_id: int, problem: Problem | None) -> MappingStatus:
     return MappingStatus.SAME
 
 
-def resolve_boj_ids(client: SolvedAcClient, boj_ids: list[int]) -> list[Mapping]:
-    """입력한 번호마다 Mapping을 하나씩, 입력 순서대로 돌려줍니다."""
+def resolve_boj_ids(
+    client: ProblemSearcher, boj_ids: list[int], on_progress: ProgressCallback | None = None
+) -> list[Mapping]:
+    """입력한 번호마다 Mapping을 하나씩, 입력 순서대로 돌려줍니다.
+
+    `on_progress(끝낸 검색 수, 전체 검색 수)`는 시작할 때와 검색이 하나 끝날 때마다 불립니다.
+    """
+    queries = build_queries(boj_ids)
+    report = on_progress or (lambda _done, _total: None)
+    report(0, len(queries))
     found: dict[int, Problem] = {}
-    for query in build_queries(boj_ids):
+    for done, query in enumerate(queries, start=1):
         for problem in client.search_problems(query):
             for native in problem.native_ids(BOJ_OJ_ID):
                 found[int(native)] = problem
+        report(done, len(queries))
     return [Mapping(boj_id, classify(boj_id, found.get(boj_id)), found.get(boj_id)) for boj_id in boj_ids]

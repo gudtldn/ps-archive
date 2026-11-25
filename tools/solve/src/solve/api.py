@@ -1,6 +1,7 @@
 """ps-archive에서 쓰는 호출만 구현한 solved.ac v4 클라이언트."""
 
 import time
+from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any, Self
 
@@ -74,9 +75,12 @@ class SolvedAcClient:
         self,
         credentials: Credentials,
         transport: httpx.BaseTransport | None = None,
-        sleep: Any = time.sleep,
+        sleep: Callable[[float], None] = time.sleep,
+        on_wait: Callable[[float, int], None] | None = None,
     ) -> None:
+        """`on_wait(초, 시도 횟수)`는 요청 한도에 걸려 기다리기 직전에 불립니다."""
         self._sleep = sleep
+        self._on_wait = on_wait
         self._http = httpx.Client(
             base_url=BASE_URL,
             headers={
@@ -95,11 +99,14 @@ class SolvedAcClient:
         self._http.close()
 
     def _get(self, path: str, params: dict[str, str] | None = None) -> dict[str, Any]:
-        for _ in range(MAX_RETRIES):
+        for attempt in range(1, MAX_RETRIES + 1):
             response = self._http.get(path, params=params)
             # 요청 한도 초과: Retry-After만큼 기다렸다가 다시 시도
             if response.status_code == 429:
-                self._sleep(float(response.headers.get("Retry-After", DEFAULT_RETRY_AFTER_SECONDS)))
+                seconds = float(response.headers.get("Retry-After", DEFAULT_RETRY_AFTER_SECONDS))
+                if self._on_wait is not None:
+                    self._on_wait(seconds, attempt)
+                self._sleep(seconds)
                 continue
             if response.is_error:
                 error = _error_body(response)

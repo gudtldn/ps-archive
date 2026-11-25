@@ -46,6 +46,18 @@ class TestRefreshMetas:
         save(tmp_path, problem(1000, 1))
         assert refresh_metas(FakeSearcher([problem(1000, 1)]), tmp_path, PATTERNS, lambda _: None) == 0
 
+    def test_forwards_query_progress(self, tmp_path: Path) -> None:
+        save(tmp_path, problem(1000, 1))
+        calls: list[tuple[int, int]] = []
+        refresh_metas(
+            FakeSearcher([problem(1000, 1)]),
+            tmp_path,
+            PATTERNS,
+            lambda _: None,
+            on_progress=lambda done, total: calls.append((done, total)),
+        )
+        assert calls == [(0, 1), (1, 1)]
+
     def test_key_change_is_reported_not_applied(self, tmp_path: Path) -> None:
         directory = save(tmp_path, problem(28955, 4))
         logs: list[str] = []

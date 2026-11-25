@@ -3,9 +3,7 @@
 import json
 from collections.abc import Callable
 from pathlib import Path
-from typing import Protocol
 
-from solve.api import Problem
 from solve.langs import LANGUAGES
 from solve.layout import (
     iter_problem_dirs,
@@ -17,18 +15,18 @@ from solve.layout import (
     write_meta,
 )
 from solve.readme import INDEX_TITLE, ReadmeEntry, render_index, render_overview, replace_section
-from solve.resolve import resolve_boj_ids
+from solve.resolve import ProblemSearcher, ProgressCallback, resolve_boj_ids
 
 README_FILE = "README.md"
 TAG_NAMES_FILE = "tags.json"
 
 
-class ProblemSearcher(Protocol):
-    def search_problems(self, query: str) -> list[Problem]: ...
-
-
 def refresh_metas(
-    client: ProblemSearcher, repo_root: Path, url_patterns: dict[str, str], report: Callable[[str], None]
+    client: ProblemSearcher,
+    repo_root: Path,
+    url_patterns: dict[str, str],
+    report: Callable[[str], None],
+    on_progress: ProgressCallback | None = None,
 ) -> int:
     """BOJ 번호가 있는 모든 문제의 meta.json을 갱신하고, 바뀐 문제 수를 돌려줍니다.
 
@@ -41,7 +39,7 @@ def refresh_metas(
             by_boj[int(boj)] = (directory, meta)
 
     changed = 0
-    for mapping in resolve_boj_ids(client, list(by_boj)):
+    for mapping in resolve_boj_ids(client, list(by_boj), on_progress):
         directory, old = by_boj[mapping.boj_id]
         if mapping.problem is None:
             report(f"{old.key}: solved.ac에서 찾을 수 없어 그대로 둡니다")

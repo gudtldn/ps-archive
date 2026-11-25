@@ -2,6 +2,7 @@
 
 import json
 from collections import Counter
+from collections.abc import Callable
 from dataclasses import replace
 from pathlib import Path
 from typing import Annotated
@@ -10,7 +11,7 @@ import typer
 from rich.console import Console
 from rich.table import Table
 
-from solve.api import ApiError, SolvedAcClient
+from solve.api import MAX_RETRIES, ApiError, SolvedAcClient
 from solve.config import ConfigError, find_repo_root, load_credentials
 from solve.langs import LANGUAGES, Language, UnknownLanguageError, parse_languages
 from solve.layout import (
@@ -25,7 +26,8 @@ from solve.layout import (
     write_meta,
 )
 from solve.migrate import migrate as run_migration
-from solve.resolve import MappingStatus, resolve_boj_ids
+from solve.progress import step
+from solve.resolve import Mapping, MappingStatus, resolve_boj_ids
 from solve.runner import BuildError, CaseResult, UnsupportedLanguageError, Verdict, run_tests
 from solve.scaffold import ResolveError, add_new_tests, fetch_meta, save_meta, write_templates
 from solve.scrape import ScrapeError, fetch_problem_page
@@ -50,6 +52,26 @@ def fail(error: Exception) -> typer.Exit:
     return typer.Exit(1)
 
 
+def report(line: str) -> None:
+    """로그의 [solved] 같은 문자열을 rich가 스타일 태그로 해석하지 않게 그대로 출력합니다."""
+    console.print(line, markup=False, highlight=False, soft_wrap=True)
+
+
+def _announce_wait(seconds: float, attempt: int) -> None:
+    message = f"solved.ac 요청 한도 초과: {seconds:.0f}초 기다린 뒤 다시 시도합니다 ({attempt}/{MAX_RETRIES})"
+    console.print(f"[yellow]{message}[/yellow]")
+
+
+def open_client(repo_root: Path) -> SolvedAcClient:
+    """요청 한도에 걸려 기다릴 때 그 사실을 알려 주는 클라이언트를 만듭니다."""
+    return SolvedAcClient(load_credentials(repo_root), on_wait=_announce_wait)
+
+
+def map_ids(client: SolvedAcClient, ids: list[int]) -> list[Mapping]:
+    with step(console, f"solved.ac에서 문제 {len(ids)}개 조회") as current:
+        return resolve_boj_ids(client, ids, current.update)
+
+
 def legacy_problem_ids(repo_root: Path) -> list[int]:
     """예전 레이아웃에서 BOJ 번호를 모읍니다. 저장소 루트의 숫자 이름 폴더가 대상입니다."""
     return sorted(int(p.name) for p in repo_root.iterdir() if p.is_dir() and p.name.isdigit())
@@ -70,8 +92,8 @@ def resolve(
     try:
         repo_root = find_repo_root()
         ids = boj_ids or legacy_problem_ids(repo_root)
-        with SolvedAcClient(load_credentials(repo_root)) as client:
-            mappings = resolve_boj_ids(client, ids)
+        with open_client(repo_root) as client:
+            mappings = map_ids(client, ids)
     except (ConfigError, ApiError) as error:
         console.print(f"[red]오류:[/red] {error}")
         raise typer.Exit(1) from error
@@ -108,14 +130,15 @@ def new(
     try:
         langs = parse_languages(lang)
         repo_root = find_repo_root()
-        with SolvedAcClient(load_credentials(repo_root)) as client:
+        with open_client(repo_root) as client, step(console, "solved.ac에서 문제 정보 받기"):
             meta = fetch_meta(client, boj_id, client.judge_url_patterns())
     except EXPECTED_ERRORS as error:
         raise fail(error) from error
 
     page = None
     try:
-        page = fetch_problem_page(meta.boj_id() or str(boj_id))
+        with step(console, "BOJ에서 예제 받기"):
+            page = fetch_problem_page(meta.boj_id() or str(boj_id))
     except ScrapeError as error:
         console.print(f"[yellow]경고:[/yellow] 예제를 가져오지 못했습니다. {error}")
 
@@ -146,8 +169,15 @@ def _languages_in(directory: Path) -> tuple[Language, ...]:
     return tuple(lang for lang in LANGUAGES if (directory / lang.source_name).exists())
 
 
-def _test_problem(repo_root: Path, directory: Path, langs: tuple[Language, ...], verbose: bool, brief: bool) -> bool:
-    """한 문제의 언어별 테스트를 실행하고 모두 통과했는지 돌려줍니다."""
+def _test_problem(
+    repo_root: Path,
+    directory: Path,
+    langs: tuple[Language, ...],
+    verbose: bool,
+    brief: bool,
+    on_stage: Callable[[str], None],
+) -> bool:
+    """한 문제의 언어별 테스트를 실행하고 모두 통과했는지 돌려줍니다. `on_stage`로 지금 하는 일을 알립니다."""
     meta = read_meta(directory)
     if not read_tests(directory):
         console.print(f"[yellow]{meta.key}: 테스트가 없습니다[/yellow]")
@@ -156,6 +186,7 @@ def _test_problem(repo_root: Path, directory: Path, langs: tuple[Language, ...],
     all_passed = True
     for language in langs:
         label = f"{meta.key} · {language.name}"
+        on_stage(f"{label} 빌드·실행 중")
         try:
             results = run_tests(repo_root, directory, language, meta.time_limit_sec)
         except UnsupportedLanguageError as error:
@@ -199,11 +230,12 @@ def test(
     except EXPECTED_ERRORS as error:
         raise fail(error) from error
 
-    failed = [
-        d.name
-        for d in directories
-        if not _test_problem(repo_root, d, fixed_langs or _languages_in(d), verbose, brief=run_all)
-    ]
+    failed = []
+    with step(console, "테스트", total=len(directories), announce=False) as current:
+        for d in directories:
+            if not _test_problem(repo_root, d, fixed_langs or _languages_in(d), verbose, run_all, current.detail):
+                failed.append(d.name)
+            current.advance()
     if run_all:
         console.print(f"[bold]{len(directories) - len(failed)}/{len(directories)} 통과[/bold]")
         if failed:
@@ -232,9 +264,10 @@ def migrate(
     try:
         repo_root = find_repo_root()
         ids = legacy_problem_ids(repo_root)
-        with SolvedAcClient(load_credentials(repo_root)) as client:
-            patterns = client.judge_url_patterns()
-            mappings = resolve_boj_ids(client, ids)
+        with open_client(repo_root) as client:
+            with step(console, "solved.ac 저지 정보 받기"):
+                patterns = client.judge_url_patterns()
+            mappings = map_ids(client, ids)
     except EXPECTED_ERRORS as error:
         raise fail(error) from error
 
@@ -242,10 +275,6 @@ def migrate(
     if missing:
         raise fail(Exception(f"solved.ac에서 찾지 못한 문제가 있어 중단합니다: {missing}"))
     metas = {m.boj_id: meta_from_problem(m.problem, patterns) for m in mappings if m.problem}
-
-    # 로그의 [solved] 같은 문자열을 rich가 스타일 태그로 해석하지 않게 합니다.
-    def report(line: str) -> None:
-        console.print(line, markup=False, highlight=False, soft_wrap=True)
 
     plans = run_migration(repo_root, metas, fetch_problem_page, report, dry_run=dry_run)
     verb = "옮길 예정" if dry_run else "옮김"
@@ -261,15 +290,20 @@ def sync(
         repo_root = find_repo_root()
         tag_names = load_tag_names(repo_root)
         if not offline:
-            with SolvedAcClient(load_credentials(repo_root)) as client:
-                changed = refresh_metas(client, repo_root, client.judge_url_patterns(), console.print)
-                all_tag_names = client.tag_names()
-            console.print(f"meta.json {changed}개 갱신")
+            with open_client(repo_root) as client:
+                with step(console, "solved.ac 저지 정보 받기"):
+                    patterns = client.judge_url_patterns()
+                with step(console, "티어·태그 다시 받아 meta.json 갱신") as current:
+                    changed = refresh_metas(client, repo_root, patterns, report, current.update)
+                with step(console, "태그 이름 받기"):
+                    all_tag_names = client.tag_names()
+            console.print(f"meta.json {changed}개 바뀜")
     except EXPECTED_ERRORS as error:
         raise fail(error) from error
 
-    entries = collect_entries(repo_root)
-    if not offline:
-        tag_names = save_tag_names(repo_root, all_tag_names, entries)
-    paths = write_readmes(repo_root, entries, tag_names)
+    with step(console, "README 다시 만들기"):
+        entries = collect_entries(repo_root)
+        if not offline:
+            tag_names = save_tag_names(repo_root, all_tag_names, entries)
+        paths = write_readmes(repo_root, entries, tag_names)
     console.print(f"README {len(paths)}개 갱신: 문제 {len(entries)}개")
