@@ -17,6 +17,7 @@ from solve.editor import EditorError, open_in_editor, should_open
 from solve.langs import LANGUAGES, Language, UnknownLanguageError, parse_languages
 from solve.layout import (
     STATUS_SOLVED,
+    Meta,
     ProblemNotFoundError,
     find_problem,
     iter_problem_dirs,
@@ -33,7 +34,7 @@ from solve.resolve import Mapping, MappingStatus, resolve_boj_ids
 from solve.runner import BuildError, CaseResult, UnsupportedLanguageError, Verdict, run_tests
 from solve.scaffold import ResolveError, add_new_tests, fetch_meta, save_meta, write_templates
 from solve.scrape import ScrapeError, fetch_problem_page
-from solve.sync import collect_entries, load_tag_names, refresh_metas, save_tag_names, write_readmes
+from solve.sync import missing_tag_names, refresh_metas, refresh_readmes
 
 app = typer.Typer(help="ps-archive: 문제 생성·테스트·solved.ac 동기화", no_args_is_help=True)
 console = Console()
@@ -123,6 +124,33 @@ def resolve(
         console.print(f"저장: {out}")
 
 
+def _fetch_tag_names_if_missing(
+    client: SolvedAcClient, repo_root: Path, tags: tuple[str, ...]
+) -> dict[str, str] | None:
+    """README에 쓸 태그 이름이 캐시에 없을 때만 받습니다. 실패해도 문제 만들기는 계속합니다."""
+    if not missing_tag_names(repo_root, tags):
+        return None
+    try:
+        with step(console, "태그 이름 받기"):
+            return client.tag_names()
+    except ApiError as error:
+        console.print(f"[yellow]경고:[/yellow] 태그 이름을 받지 못해 README에 태그 키를 그대로 씁니다. {error}")
+        return None
+
+
+def _print_new_summary(
+    repo_root: Path, meta: Meta, directory: Path, added: list[str], sources: list[Path], created: list[Path]
+) -> None:
+    console.print(f"[bold]{meta.key}[/bold] {meta.title} (level {meta.level})")
+    if meta.url():
+        console.print(f"  링크: {meta.url()}")
+    console.print(f"  예제: {len(added)}개 추가 (전체 {len(read_tests(directory))}개)")
+    # 터미널에서 Ctrl+클릭으로 바로 열 수 있게 저장소 기준 상대 경로를 그대로 출력합니다.
+    for path in sources:
+        label = "생성" if path in created else "기존"
+        console.print(f"  {label}: {path.relative_to(repo_root).as_posix()}")
+
+
 @app.command()
 def new(
     boj_id: Annotated[int, typer.Argument(help="BOJ 문제 번호")],
@@ -152,8 +180,10 @@ def new(
 
     try:
         repo_root = find_repo_root()
-        with open_client(repo_root) as client, step(console, "solved.ac에서 문제 정보 받기"):
-            meta = fetch_meta(client, boj_id, client.judge_url_patterns())
+        with open_client(repo_root) as client:
+            with step(console, "solved.ac에서 문제 정보 받기"):
+                meta = fetch_meta(client, boj_id, client.judge_url_patterns())
+            all_tag_names = _fetch_tag_names_if_missing(client, repo_root, meta.tags)
     except EXPECTED_ERRORS as error:
         raise fail(error) from error
 
@@ -167,17 +197,11 @@ def new(
     directory = save_meta(repo_root, meta, page)
     added = add_new_tests(directory, [(s.input, s.output) for s in page.samples]) if page else []
     created = write_templates(repo_root, directory, meta, langs)
+    with step(console, "README 갱신"):
+        refresh_readmes(repo_root, all_tag_names)
 
-    console.print(f"[bold]{meta.key}[/bold] {meta.title} (level {meta.level})")
-    if meta.url():
-        console.print(f"  링크: {meta.url()}")
-    console.print(f"  예제: {len(added)}개 추가 (전체 {len(read_tests(directory))}개)")
-    # 터미널에서 Ctrl+클릭으로 바로 열 수 있게 저장소 기준 상대 경로를 그대로 출력합니다.
     sources = [directory / language.source_name for language in langs]
-    for path in sources:
-        label = "생성" if path in created else "기존"
-        console.print(f"  {label}: {path.relative_to(repo_root).as_posix()}")
-
+    _print_new_summary(repo_root, meta, directory, added, sources, created)
     if should_open(open_editor, is_interactive()):
         try:
             open_in_editor(sources)
@@ -280,11 +304,15 @@ def test(
 def done(ident: Annotated[str, typer.Argument(help="solved.ac 키 또는 BOJ 번호")]) -> None:
     """문제 상태를 solved로 바꿉니다."""
     try:
-        directory = find_problem(find_repo_root(), ident)
+        repo_root = find_repo_root()
+        directory = find_problem(repo_root, ident)
     except EXPECTED_ERRORS as error:
         raise fail(error) from error
     meta = read_meta(directory)
     write_meta(directory, replace(meta, status=STATUS_SOLVED))
+    # 상태 아이콘만 바뀌므로 태그 이름 캐시로 충분합니다 (네트워크 없음).
+    with step(console, "README 갱신"):
+        refresh_readmes(repo_root)
     console.print(f"{meta.key} {meta.title}: [green]{STATUS_SOLVED}[/green]")
 
 
@@ -318,9 +346,9 @@ def sync(
     offline: Annotated[bool, typer.Option("--offline", help="solved.ac를 부르지 않고 README만 다시 만듦")] = False,
 ) -> None:
     """solved.ac에서 티어·태그를 다시 받아 meta.json을 갱신하고 README를 다시 만듭니다."""
+    all_tag_names: dict[str, str] | None = None
     try:
         repo_root = find_repo_root()
-        tag_names = load_tag_names(repo_root)
         if not offline:
             with open_client(repo_root) as client:
                 with step(console, "solved.ac 저지 정보 받기"):
@@ -334,8 +362,5 @@ def sync(
         raise fail(error) from error
 
     with step(console, "README 다시 만들기"):
-        entries = collect_entries(repo_root)
-        if not offline:
-            tag_names = save_tag_names(repo_root, all_tag_names, entries)
-        paths = write_readmes(repo_root, entries, tag_names)
-    console.print(f"README {len(paths)}개 갱신: 문제 {len(entries)}개")
+        paths, count = refresh_readmes(repo_root, all_tag_names)
+    console.print(f"README {len(paths)}개 갱신: 문제 {count}개")

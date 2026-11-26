@@ -4,7 +4,15 @@ from pathlib import Path
 from solve.api import JudgeId, Problem
 from solve.layout import STATUS_SOLVED, meta_from_problem, problem_dir, read_meta, write_meta
 from solve.readme import START_MARKER
-from solve.sync import collect_entries, load_tag_names, refresh_metas, save_tag_names, write_readmes
+from solve.sync import (
+    collect_entries,
+    load_tag_names,
+    missing_tag_names,
+    refresh_metas,
+    refresh_readmes,
+    save_tag_names,
+    write_readmes,
+)
 
 PATTERNS = {"boj": "https://www.acmicpc.net/problem/{problemId}"}
 
@@ -95,3 +103,34 @@ def test_write_readmes_keeps_hand_written_header_and_writes_index(tmp_path: Path
     assert index.startswith("# 문제 목록\n")
     assert "[P1000](01000-01999/1000)" in index and "수학" in index
     assert [p.relative_to(tmp_path).as_posix() for p in written] == ["README.md", "problems/README.md"]
+
+
+class TestRefreshReadmes:
+    def index(self, repo: Path) -> str:
+        return (repo / "problems" / "README.md").read_text(encoding="utf-8")
+
+    def test_uses_cached_tag_names_without_touching_cache(self, tmp_path: Path) -> None:
+        save(tmp_path, problem(1000, 1, ("math",)))
+        save_tag_names(tmp_path, {"math": "수학"}, collect_entries(tmp_path))
+        save(tmp_path, problem(1406, 9))
+
+        paths, count = refresh_readmes(tmp_path)
+
+        assert count == 2 and len(paths) == 2
+        assert "[P1406]" in self.index(tmp_path) and "수학" in self.index(tmp_path)
+        assert load_tag_names(tmp_path) == {"math": "수학"}
+
+    def test_updates_cache_from_given_names_for_new_tags(self, tmp_path: Path) -> None:
+        save(tmp_path, problem(1406, 9, ("data_structures",)))
+
+        refresh_readmes(tmp_path, {"data_structures": "자료 구조", "math": "수학"})
+
+        assert "자료 구조" in self.index(tmp_path)
+        assert load_tag_names(tmp_path) == {"data_structures": "자료 구조"}
+
+
+def test_missing_tag_names_reports_only_uncached_tags(tmp_path: Path) -> None:
+    save(tmp_path, problem(1000, 1, ("math",)))
+    save_tag_names(tmp_path, {"math": "수학"}, collect_entries(tmp_path))
+    assert missing_tag_names(tmp_path, ("math",)) is False
+    assert missing_tag_names(tmp_path, ("math", "data_structures")) is True

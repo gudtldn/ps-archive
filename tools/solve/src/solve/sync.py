@@ -1,7 +1,7 @@
 """solved.ac 메타데이터를 다시 받아 meta.json을 갱신하고 README를 다시 만듭니다."""
 
 import json
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 from pathlib import Path
 
 from solve.langs import LANGUAGES
@@ -75,6 +75,25 @@ def save_tag_names(repo_root: Path, all_names: dict[str, str], entries: list[Rea
 def load_tag_names(repo_root: Path) -> dict[str, str]:
     path = problems_root(repo_root) / TAG_NAMES_FILE
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def missing_tag_names(repo_root: Path, tags: Iterable[str]) -> bool:
+    """캐시에 이름이 없는 태그가 있으면 참입니다. 없으면 README에 태그 키가 그대로 찍힙니다."""
+    cached = load_tag_names(repo_root)
+    return any(tag not in cached for tag in tags)
+
+
+def refresh_readmes(repo_root: Path, all_tag_names: dict[str, str] | None = None) -> tuple[list[Path], int]:
+    """README를 다시 만들고 (갱신한 파일, 문제 수)를 돌려줍니다.
+
+    `all_tag_names`(solved.ac 전체 태그 이름)를 주면 캐시도 갱신하고, 없으면 캐시만 읽어 네트워크 없이 끝냅니다.
+    """
+    entries = collect_entries(repo_root)
+    if all_tag_names is None:
+        tag_names = load_tag_names(repo_root)
+    else:
+        tag_names = save_tag_names(repo_root, all_tag_names, entries)
+    return write_readmes(repo_root, entries, tag_names), len(entries)
 
 
 def _update_readme(path: Path, section: str, default_header: str) -> Path:
