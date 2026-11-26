@@ -1,0 +1,5 @@
+# solve CLI(tools/solve/src/solve/langs.py)의 cpp 빌드 옵션과 맞춥니다.
+# Compiler를 g++로 지정해야 clangd가 MSVC 대신 MinGW 헤더와 타깃을 씁니다.
+CompileFlags:
+  Compiler: g++
+  Add: [-std=c++23, -DONLINE_JUDGE, -DBOJ]

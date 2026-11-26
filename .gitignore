@@ -7,6 +7,7 @@ target/
 !*.kt
 !*.asm
 !Cargo.toml
+!.clangd
 
 # problems/ 레이아웃
 !meta.json
