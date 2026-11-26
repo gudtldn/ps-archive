@@ -11,6 +11,7 @@ void solution()
     using namespace std;
 
     list<char> edit_str;
+    // TODO: 첫번째 문자열 받아야 함
 
     uint32_t m;
     cin >> m;
