@@ -40,10 +40,6 @@ path = "problems/01000-01999/1252/main.rs"
 edition = "2021"
 
 [[bin]]
-name = "p1406"
-path = "problems/01000-01999/1406/main.rs"
-
-[[bin]]
 name = "p1620"
 path = "problems/01000-01999/1620/main.rs"
 edition = "2021"
