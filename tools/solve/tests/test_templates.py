@@ -32,3 +32,36 @@ def test_rust_template_compiles_without_warnings(tmp_path: Path) -> None:
     )
 
     assert result.returncode == 0, result.stderr
+
+
+# 템플릿 하나만 OJ에 붙여넣는다고 보고, 외부 의존 없이 단일 파일로 빌드·실행되는지 확인합니다.
+_RUST_BODY = """\
+    let (n, k) = parse_line!(usize, i64);
+    let a = parse_line!([i64]);
+    assert_eq!(a.len(), n);
+    let word = parse_line!(String);
+    println!("{}", a.iter().sum::<i64>() * k);
+    print!("{} ", word);
+    println!();"""
+
+
+@pytest.mark.skipif(shutil.which("rustc") is None, reason="rustc가 없습니다")
+@pytest.mark.parametrize("edition", ["2018", "2021"])
+def test_rust_template_parses_tuple_and_vec_lines(tmp_path: Path, edition: str) -> None:
+    source = render_template(get_language("rs"), TITLE, URL)
+    assert '    todo!("solve here");' in source
+    src = tmp_path / "main.rs"
+    src.write_text(source.replace('    todo!("solve here");', _RUST_BODY), encoding="utf-8")
+    exe = tmp_path / "main"
+
+    build = subprocess.run(
+        ["rustc", "--edition", edition, "-O", "-o", str(exe), str(src)],
+        capture_output=True,
+        text=True,
+    )
+    assert build.returncode == 0, build.stderr
+
+    run = subprocess.run([str(exe)], input="3 2\r\n1 2 3\r\nhello\r\n", capture_output=True, text=True)
+
+    assert run.returncode == 0, run.stderr
+    assert run.stdout.splitlines() == ["12", "hello "]

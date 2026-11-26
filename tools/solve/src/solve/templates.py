@@ -29,12 +29,16 @@ fn solution(stdin: &str) {
     #[allow(unused)]
     let mut next = || lines.next().unwrap();
 
+    // parse_line!(usize, i64) -> (usize, i64), parse_line!([i64]) -> Vec<i64>
     #[allow(unused_macros)]
     macro_rules! parse_line {
-        ($($to_type:ty),*) => {
+        ([$t:ty]) => {
+            next().split_ascii_whitespace().map(|s| s.parse::<$t>().unwrap()).collect::<Vec<_>>()
+        };
+        ($($t:ty),+) => {
             {
-                let mut iter = next().split_whitespace();
-                ($(iter.next().unwrap().parse::<$to_type>().unwrap()),*)
+                let mut it = next().split_ascii_whitespace();
+                ($(it.next().unwrap().parse::<$t>().unwrap()),+)
             }
         };
     }
