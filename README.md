@@ -11,7 +11,8 @@
 (`uv tool install -e tools/solve`로 설치하면 `solve`만으로 실행)
 
 ```sh
-solve new 1000 -l py,rs   # 문제 폴더·예제·시작 코드 만들기 (언어: py, rs, cpp, kt, asm)
+solve new 1000            # 문제 폴더·예제·시작 코드 만들기 (언어는 목록에서 고르고, 에디터로 바로 엶. 끄려면 -E)
+solve new 1000 -l py,rs   # 언어를 바로 지정 (python/py, rust/rs, cpp/c++, kotlin/kt, asm)
 solve test 1000           # 폴더에 있는 모든 언어로 tests/ 실행
 solve test 1000 -l rs -v  # 한 언어만, 틀리면 기대·실제 출력 표시
 solve test --all          # 전체 문제 테스트, 실패만 표시

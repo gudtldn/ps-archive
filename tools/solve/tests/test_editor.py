@@ -3,7 +3,17 @@ from pathlib import Path
 
 import pytest
 
-from solve.editor import EditorError, open_in_editor, resolve_editor_command
+from solve.editor import EditorError, open_in_editor, resolve_editor_command, should_open
+
+
+@pytest.mark.parametrize(
+    ("flag", "interactive", "expected"),
+    [(None, True, True), (None, False, False), (False, True, False), (True, False, True)],
+)
+def test_opens_by_default_only_in_terminal_and_explicit_flag_wins(
+    flag: bool | None, interactive: bool, expected: bool
+) -> None:
+    assert should_open(flag, interactive) is expected
 
 
 class RecordingRunner:

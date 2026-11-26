@@ -24,6 +24,11 @@ def _split_command(value: str) -> list[str]:
     return [token.strip("\"'") for token in shlex.split(value, posix=False)]
 
 
+def should_open(flag: bool | None, interactive: bool) -> bool:
+    """`--open`/`--no-open`을 줬으면 그대로 따르고, 안 줬으면 사람이 터미널 앞에 있을 때만 엽니다."""
+    return interactive if flag is None else flag
+
+
 def resolve_editor_command(env: Mapping[str, str]) -> list[str]:
     """SOLVE_EDITOR → VISUAL → EDITOR 순서로 처음 값이 있는 것을 쓰고, 없으면 VSCode를 씁니다."""
     for name in EDITOR_ENV_VARS:

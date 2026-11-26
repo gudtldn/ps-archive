@@ -60,7 +60,7 @@ class TestLangs:
         assert [lang.name for lang in parse_languages("py, rs,python,c++")] == ["python", "rust", "cpp"]
 
     def test_unknown_language(self) -> None:
-        with pytest.raises(UnknownLanguageError):
+        with pytest.raises(UnknownLanguageError, match=r"python\(py\).*cpp\(c\+\+, cc\)"):
             get_language("brainfuck")
 
     def test_language_for_file(self) -> None:

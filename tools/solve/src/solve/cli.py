@@ -13,7 +13,7 @@ from rich.table import Table
 
 from solve.api import MAX_RETRIES, ApiError, SolvedAcClient
 from solve.config import ConfigError, find_repo_root, load_credentials
-from solve.editor import EditorError, open_in_editor
+from solve.editor import EditorError, open_in_editor, should_open
 from solve.langs import LANGUAGES, Language, UnknownLanguageError, parse_languages
 from solve.layout import (
     STATUS_SOLVED,
@@ -28,6 +28,7 @@ from solve.layout import (
 )
 from solve.migrate import migrate as run_migration
 from solve.progress import step
+from solve.prompts import NotInteractiveError, SelectionCancelled, choose_languages, is_interactive
 from solve.resolve import Mapping, MappingStatus, resolve_boj_ids
 from solve.runner import BuildError, CaseResult, UnsupportedLanguageError, Verdict, run_tests
 from solve.scaffold import ResolveError, add_new_tests, fetch_meta, save_meta, write_templates
@@ -125,14 +126,31 @@ def resolve(
 @app.command()
 def new(
     boj_id: Annotated[int, typer.Argument(help="BOJ 문제 번호")],
-    lang: Annotated[str, typer.Option("--lang", "-l", help="쉼표로 구분한 언어 (예: py,rs)")] = "py",
+    lang: Annotated[
+        str | None, typer.Option("--lang", "-l", help="쉼표로 구분한 언어 (예: rs, py,rs). 생략하면 목록에서 고릅니다")
+    ] = None,
     open_editor: Annotated[
-        bool, typer.Option("--open", "-e", help="풀이 파일을 에디터로 엽니다 (SOLVE_EDITOR → VISUAL → EDITOR → code)")
-    ] = False,
+        bool | None,
+        typer.Option(
+            "--open/--no-open",
+            "-e/-E",
+            help="풀이 파일을 에디터로 열지 정합니다. 생략하면 터미널에서만 엽니다 "
+            "(SOLVE_EDITOR → VISUAL → EDITOR → code)",
+            show_default=False,
+        ),
+    ] = None,
 ) -> None:
     """문제 폴더를 만들고 예제와 언어별 시작 코드를 준비합니다."""
+    # 네트워크 요청 전에 언어부터 정해야 취소했을 때 아무것도 하지 않고 끝납니다.
     try:
-        langs = parse_languages(lang)
+        langs = parse_languages(lang) if lang else choose_languages(is_interactive())
+    except SelectionCancelled as error:
+        console.print(f"[yellow]{error}[/yellow]")
+        raise typer.Exit(1) from error
+    except (UnknownLanguageError, NotInteractiveError) as error:
+        raise fail(error) from error
+
+    try:
         repo_root = find_repo_root()
         with open_client(repo_root) as client, step(console, "solved.ac에서 문제 정보 받기"):
             meta = fetch_meta(client, boj_id, client.judge_url_patterns())
@@ -160,7 +178,7 @@ def new(
         label = "생성" if path in created else "기존"
         console.print(f"  {label}: {path.relative_to(repo_root).as_posix()}")
 
-    if open_editor:
+    if should_open(open_editor, is_interactive()):
         try:
             open_in_editor(sources)
         except EditorError as error:

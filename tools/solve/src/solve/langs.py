@@ -89,8 +89,16 @@ def get_language(key: str) -> Language:
     try:
         return _BY_KEY[key.strip().lower()]
     except KeyError:
-        names = ", ".join(lang.ext for lang in LANGUAGES)
-        raise UnknownLanguageError(f"알 수 없는 언어: {key!r} (사용 가능: {names})") from None
+        raise UnknownLanguageError(f"알 수 없는 언어: {key!r} (사용 가능: {_describe_keys()})") from None
+
+
+def _describe_keys() -> str:
+    """`python(py), cpp(c++, cc)`처럼 이름과 함께 받는 다른 이름을 모두 보여 줍니다."""
+    parts = []
+    for lang in LANGUAGES:
+        others = [key for key in dict.fromkeys((lang.ext, *lang.aliases)) if key != lang.name]
+        parts.append(f"{lang.name}({', '.join(others)})" if others else lang.name)
+    return ", ".join(parts)
 
 
 def parse_languages(spec: str) -> tuple[Language, ...]:
