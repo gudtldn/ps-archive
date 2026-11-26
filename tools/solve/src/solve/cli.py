@@ -13,6 +13,7 @@ from rich.table import Table
 
 from solve.api import MAX_RETRIES, ApiError, SolvedAcClient
 from solve.config import ConfigError, find_repo_root, load_credentials
+from solve.editor import EditorError, open_in_editor
 from solve.langs import LANGUAGES, Language, UnknownLanguageError, parse_languages
 from solve.layout import (
     STATUS_SOLVED,
@@ -125,6 +126,9 @@ def resolve(
 def new(
     boj_id: Annotated[int, typer.Argument(help="BOJ 문제 번호")],
     lang: Annotated[str, typer.Option("--lang", "-l", help="쉼표로 구분한 언어 (예: py,rs)")] = "py",
+    open_editor: Annotated[
+        bool, typer.Option("--open", "-e", help="풀이 파일을 에디터로 엽니다 (SOLVE_EDITOR → VISUAL → EDITOR → code)")
+    ] = False,
 ) -> None:
     """문제 폴더를 만들고 예제와 언어별 시작 코드를 준비합니다."""
     try:
@@ -147,10 +151,20 @@ def new(
     created = write_templates(repo_root, directory, meta, langs)
 
     console.print(f"[bold]{meta.key}[/bold] {meta.title} (level {meta.level})")
-    console.print(f"  폴더: {directory.relative_to(repo_root).as_posix()}")
+    if meta.url():
+        console.print(f"  링크: {meta.url()}")
     console.print(f"  예제: {len(added)}개 추가 (전체 {len(read_tests(directory))}개)")
-    for path in created:
-        console.print(f"  생성: {path.name}")
+    # 터미널에서 Ctrl+클릭으로 바로 열 수 있게 저장소 기준 상대 경로를 그대로 출력합니다.
+    sources = [directory / language.source_name for language in langs]
+    for path in sources:
+        label = "생성" if path in created else "기존"
+        console.print(f"  {label}: {path.relative_to(repo_root).as_posix()}")
+
+    if open_editor:
+        try:
+            open_in_editor(sources)
+        except EditorError as error:
+            console.print(f"[yellow]경고:[/yellow] {error}")
 
 
 def _show_result(result: CaseResult, verbose: bool) -> None:
