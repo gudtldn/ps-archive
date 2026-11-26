@@ -1,0 +1,22 @@
+{
+  "key": "1406",
+  "problemId": 1406,
+  "subId": "",
+  "title": "에디터",
+  "level": 9,
+  "tags": [
+    "ds",
+    "linked_list",
+    "stack"
+  ],
+  "judges": [
+    {
+      "oj": "boj",
+      "id": "1406",
+      "url": "https://www.acmicpc.net/problem/1406"
+    }
+  ],
+  "timeLimitSec": 0.3,
+  "memoryLimitMb": 512,
+  "status": "solving"
+}
