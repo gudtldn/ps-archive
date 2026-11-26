@@ -14,6 +14,11 @@
       "oj": "boj",
       "id": "2609",
       "url": "https://www.acmicpc.net/problem/2609"
+    },
+    {
+      "oj": "jungol",
+      "id": "1658",
+      "url": "https://jungol.co.kr/problem/1658"
     }
   ],
   "timeLimitSec": 1.0,
