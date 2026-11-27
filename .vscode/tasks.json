@@ -14,6 +14,16 @@
             "problemMatcher": ["$gcc"],
             "group": "build",
             "presentation": { "reveal": "silent", "clear": true }
+        },
+        {
+            // 루트 Cargo.toml에 문제마다 p<폴더 이름> 바이너리가 등록돼 있습니다 (solve가 관리).
+            "label": "Rust: 디버그 빌드",
+            "type": "process",
+            "command": "cargo",
+            "args": ["build", "--manifest-path", "${workspaceFolder}/Cargo.toml", "--bin", "p${fileDirnameBasename}"],
+            "problemMatcher": ["$rustc"],
+            "group": "build",
+            "presentation": { "reveal": "silent", "clear": true }
         }
     ]
 }

@@ -22,11 +22,10 @@
             "name": "Rust: 현재 문제 디버그",
             "type": "lldb",
             "request": "launch",
-            // 루트 Cargo.toml에 문제마다 p<폴더 이름> 바이너리가 등록돼 있습니다 (solve가 관리).
-            "cargo": {
-                "args": ["build", "--manifest-path", "${workspaceFolder}/Cargo.toml", "--bin", "p${fileDirnameBasename}"],
-                "filter": { "kind": "bin" }
-            },
+            // CodeLLDB의 "cargo" 옵션은 결과물을 여러 개로 잘못 세는 경우가 있어("Multiple compilation artifacts"),
+            // C++처럼 task로 빌드하고 실행 파일 경로를 직접 넘깁니다.
+            "preLaunchTask": "Rust: 디버그 빌드",
+            "program": "${workspaceFolder}/target/debug/p${fileDirnameBasename}.exe",
             "stdio": ["${fileDirname}/tests/${input:testCase}.in", null, null],
             "cwd": "${fileDirname}"
         }
