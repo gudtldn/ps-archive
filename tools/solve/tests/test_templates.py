@@ -65,3 +65,37 @@ def test_rust_template_parses_tuple_and_vec_lines(tmp_path: Path, edition: str) 
 
     assert run.returncode == 0, run.stderr
     assert run.stdout.splitlines() == ["12", "hello "]
+
+
+# u8/i8은 std::format에서 문자가 아니라 정수로 출력되는지도 같이 확인합니다.
+_CPP_BODY = """\
+    i32 n;
+    u64 k;
+    cin >> n >> k;
+    u8 b = 200;
+    i8 c = -5;
+    usize len = static_cast<usize>(n);
+    f64 half = static_cast<f64>(k) / 2.0;
+    println("{} {} {} {} {}", static_cast<u64>(n) * k, b, c, len, half);"""
+
+
+@pytest.mark.skipif(shutil.which("g++") is None, reason="g++가 없습니다")
+def test_cpp_template_builds_standalone_with_aliases_and_println(tmp_path: Path) -> None:
+    lang = get_language("cpp")
+    source = render_template(lang, TITLE, URL)
+    assert "    // code here" in source
+    src = tmp_path / "main.cpp"
+    src.write_text(source.replace("    // code here", _CPP_BODY), encoding="utf-8")
+    assert lang.build is not None and lang.run is not None
+
+    build = subprocess.run(
+        [*lang.command(lang.build, src=str(src), out=str(tmp_path)), "-Wall", "-Wextra", "-Werror"],
+        capture_output=True,
+        text=True,
+    )
+    assert build.returncode == 0, build.stderr
+
+    run = subprocess.run(lang.command(lang.run, out=str(tmp_path)), input="3 10\n", capture_output=True, text=True)
+
+    assert run.returncode == 0, run.stderr
+    assert run.stdout.splitlines() == ["30 200 -5 3 5"]
