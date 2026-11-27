@@ -18,5 +18,5 @@
   ],
   "timeLimitSec": 0.3,
   "memoryLimitMb": 512,
-  "status": "solving"
+  "status": "solved"
 }
