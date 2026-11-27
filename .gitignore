@@ -9,6 +9,12 @@ target/
 !Cargo.toml
 !.clangd
 
+# VSCode 디버그 설정만 공유합니다 (settings.json은 개인 설정이라 제외)
+!.vscode/
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+
 # problems/ 레이아웃
 !meta.json
 !tags.json

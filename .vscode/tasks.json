@@ -1,0 +1,19 @@
+{
+    // 지금 열려 있는 문제의 main.cpp를 디버그용으로 빌드합니다 (launch.json의 C++ 설정이 씁니다).
+    // 채점과 같은 매크로·표준은 유지하고, 한 줄씩 따라갈 수 있게 -O2 대신 -g -O0을 씁니다.
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "C++: 디버그 빌드",
+            "type": "shell",
+            "options": {
+                "shell": { "executable": "cmd.exe", "args": ["/d", "/c"] }
+            },
+            // cmd는 괄호가 없으면 `&& g++`까지 if 본문으로 읽어, 폴더가 이미 있을 때 빌드를 건너뜁니다.
+            "command": "(if not exist \"${workspaceFolder}\\.build\\debug\" mkdir \"${workspaceFolder}\\.build\\debug\") && g++ -std=c++23 -g -O0 -static -DONLINE_JUDGE -DBOJ -o \"${workspaceFolder}\\.build\\debug\\${fileDirnameBasename}.exe\" \"${fileDirname}\\main.cpp\" -lstdc++exp",
+            "problemMatcher": ["$gcc"],
+            "group": "build",
+            "presentation": { "reveal": "silent", "clear": true }
+        }
+    ]
+}

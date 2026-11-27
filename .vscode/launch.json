@@ -1,0 +1,42 @@
+{
+    // 문제 폴더의 main.cpp / main.rs를 연 상태에서 F5를 누르면 tests/N.in을 stdin으로 넣고 디버깅합니다.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C++: 현재 문제 디버그",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "C++: 디버그 빌드",
+            "program": "${workspaceFolder}/.build/debug/${fileDirnameBasename}.exe",
+            "args": ["<", "${fileDirname}/tests/${input:testCase}.in"],
+            "cwd": "${fileDirname}",
+            "MIMode": "gdb",
+            // 경로 없이 이름만 주면 PATH에서 찾습니다 (MinGW gdb).
+            "miDebuggerPath": "gdb.exe",
+            "externalConsole": false,
+            "setupCommands": [
+                { "description": "STL 컨테이너를 보기 좋게 표시", "text": "-enable-pretty-printing", "ignoreFailures": true }
+            ]
+        },
+        {
+            "name": "Rust: 현재 문제 디버그",
+            "type": "lldb",
+            "request": "launch",
+            // 루트 Cargo.toml에 문제마다 p<폴더 이름> 바이너리가 등록돼 있습니다 (solve가 관리).
+            "cargo": {
+                "args": ["build", "--manifest-path", "${workspaceFolder}/Cargo.toml", "--bin", "p${fileDirnameBasename}"],
+                "filter": { "kind": "bin" }
+            },
+            "stdio": ["${fileDirname}/tests/${input:testCase}.in", null, null],
+            "cwd": "${fileDirname}"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "testCase",
+            "type": "promptString",
+            "description": "stdin으로 넣을 테스트 번호 (tests/N.in)",
+            "default": "1"
+        }
+    ]
+}
