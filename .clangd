@@ -2,4 +2,4 @@
 # Compiler를 g++로 지정해야 clangd가 MSVC 대신 MinGW 헤더와 타깃을 씁니다.
 CompileFlags:
   Compiler: g++
-  Add: [-std=c++23, -DONLINE_JUDGE, -DBOJ]
+  Add: [-std=c++23, -DONLINE_JUDGE, -DBOJ, -Wimplicit-fallthrough]
